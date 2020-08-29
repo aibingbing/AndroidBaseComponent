@@ -47,6 +47,11 @@ public abstract class BaseMvpActivity extends AppCompatActivity implements IBase
         super.onDestroy();
     }
 
+    @Override
+    public BaseMvpActivity getBaseActivity() {
+        return this;
+    }
+
     protected PresenterProvider getPresenterProviders() {
         return mPresenterProvider;
     }

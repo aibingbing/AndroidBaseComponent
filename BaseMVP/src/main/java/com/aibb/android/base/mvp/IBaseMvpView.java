@@ -7,4 +7,5 @@ package com.aibb.android.base.mvp;
  * Desc:        <br>
  */
 public interface IBaseMvpView {
+    BaseMvpActivity getBaseActivity();
 }

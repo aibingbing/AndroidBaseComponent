@@ -54,8 +54,8 @@ public abstract class BaseMvpFragment extends Fragment implements IBaseMvpView {
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
+    public BaseMvpActivity getBaseActivity() {
+        return (BaseMvpActivity) getActivity();
     }
 
     public PresenterProvider getPresenterProviders() {
