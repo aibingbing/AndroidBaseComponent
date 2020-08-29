@@ -1,13 +1,11 @@
 package com.aibb.android.base.example
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import butterknife.BindView
+import androidx.appcompat.app.AppCompatActivity
 import butterknife.ButterKnife
 import com.aibb.android.base.example.mvp.MvpMainActivity
+import com.aibb.android.base.example.network.view.NetworkServiceTestActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +16,10 @@ class MainActivity : AppCompatActivity() {
         ButterKnife.bind(this)
         mvpBtn.setOnClickListener {
             val intent = Intent(this, MvpMainActivity::class.java)
+            startActivity(intent)
+        }
+        networkBtn.setOnClickListener {
+            val intent = Intent(this, NetworkServiceTestActivity::class.java)
             startActivity(intent)
         }
     }

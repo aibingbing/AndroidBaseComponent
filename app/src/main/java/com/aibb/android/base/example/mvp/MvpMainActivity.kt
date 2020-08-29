@@ -2,8 +2,8 @@ package com.aibb.android.base.example.mvp
 
 import android.util.Log
 import android.widget.Toast
+import com.aibb.android.base.example.MyBaseMvpActivity
 import com.aibb.android.base.example.R
-import com.aibb.android.base.mvp.BaseMvpActivity
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
 import kotlinx.android.synthetic.main.mvp_main_layout.*
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.mvp_main_layout.*
  * Desc:        <br>
  */
 @MvpPresenterInject(values = [LoginPresenter::class, AccountPresenter::class])
-class MvpMainActivity : BaseMvpActivity(), LoginView, AccountView {
+class MvpMainActivity : MyBaseMvpActivity(), LoginView, AccountView {
 
     @MvpPresenterVariable
     lateinit var mLoginPresenter: LoginPresenter
