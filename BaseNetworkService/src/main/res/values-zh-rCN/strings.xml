@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="http_error_message_not_authentication">登录状态失效，请重新登录</string>
+    <string name="http_error_message_not_forbidden">您没有权限进行此操作</string>
+    <string name="http_error_message_server_error">服务器错误</string>
+    <string name="http_error_message_not_found">资源未找到</string>
+    <string name="http_error_message">请求出错</string>
+    <string name="http_error_message_runtime">请求超时</string>
+    <string name="hint_network_error">当前无网络，请重试</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="http_error_message_not_authentication">Login failure, please login again.</string>
+    <string name="http_error_message_not_forbidden">You do not have permission to do this.</string>
+    <string name="http_error_message_server_error">Server error.</string>
+    <string name="http_error_message_not_found">Resource is not found.</string>
+    <string name="http_error_message">Request error.</string>
+    <string name="http_error_message_runtime">Request runtime</string>
+    <string name="hint_network_error">No network,please try again</string>
+</resources>

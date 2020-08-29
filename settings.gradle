@@ -1,3 +1,4 @@
 rootProject.name='BaseComponent'
 include ':app'
 include ':BaseMVP'
+include ':BaseNetworkService'
