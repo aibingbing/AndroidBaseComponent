@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -46,7 +46,7 @@ publish {
     groupId = 'com.aibb.android.base'
     //项目id，类似于com.android.support:appcompat-v7:28.0.0中  的appcompat-v7
     artifactId = 'BaseMVP'
-    publishVersion = '0.1.0' //版本号
+    publishVersion = '0.2.0' //版本号
     desc = 'android base mvp' //可选，项目介绍
     website = 'https://github.com/aibingbing/AndroidBaseComponent' //可选，项目地址
 }
