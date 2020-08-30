@@ -135,7 +135,7 @@ public class PresenterProvider {
         public final void put(String key, P presenter) {
             P oldPresenter = mMap.put(DEFAULT_KEY + ":" + key, presenter);
             if (oldPresenter != null) {
-                oldPresenter.destory();
+                oldPresenter.destroy();
             }
         }
 
@@ -145,7 +145,7 @@ public class PresenterProvider {
 
         public final void destroy() {
             for (P presenter : mMap.values()) {
-                presenter.destory();
+                presenter.destroy();
             }
             mMap.clear();
         }

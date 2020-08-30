@@ -71,7 +71,7 @@ public abstract class BaseMvpFragment extends Fragment implements IBaseMvpView {
         return null;
     }
 
-    public abstract void onCreateView(View container, Bundle bundle);
+    protected abstract void onCreateView(View container, Bundle bundle);
 
     protected abstract void initialize();
 

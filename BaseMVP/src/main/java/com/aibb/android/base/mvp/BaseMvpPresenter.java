@@ -25,7 +25,7 @@ public abstract class BaseMvpPresenter<T extends IBaseMvpView> implements IBaseM
     }
 
     @Override
-    public void destory() {
+    public void destroy() {
     }
 
     public T getMvpView() {

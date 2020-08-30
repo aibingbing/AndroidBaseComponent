@@ -44,7 +44,7 @@ public class PresenterDispatch {
         for (Map.Entry<String, P> entry : mMap.entrySet()) {
             P presenter = entry.getValue();
             if (presenter != null) {
-                presenter.destory();
+                presenter.destroy();
             }
         }
     }

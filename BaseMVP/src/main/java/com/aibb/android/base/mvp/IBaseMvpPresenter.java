@@ -13,5 +13,5 @@ public interface IBaseMvpPresenter<T extends IBaseMvpView> {
 
     boolean isAttachView();
 
-    void destory();
+    void destroy();
 }
