@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="MvpMainActivity" />
+        android:text="Open MvpMainActivity" />
 
     <Button
         android:id="@+id/networkBtn"
@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="NetworkServiceTestActivity" />
+        android:text="Open NetworkServiceTestActivity" />
 
 </LinearLayout>

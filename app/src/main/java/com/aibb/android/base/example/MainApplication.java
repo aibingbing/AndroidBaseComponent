@@ -16,7 +16,12 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initRetorfit();
+    }
+
+    private void initRetorfit() {
         RetrofitFactory.initApplicatonContext(this);
         RetrofitFactory.addGlobalHeader("Accept-Language", Locale.getDefault().getLanguage());
     }
+
 }

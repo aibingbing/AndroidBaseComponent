@@ -1,6 +1,8 @@
 package com.aibb.android.base.example
 
+import android.content.Context
 import android.os.Bundle
+import com.afollestad.materialdialogs.MaterialDialog
 import com.aibb.android.base.mvp.BaseMvpActivity
 import com.trello.rxlifecycle2.LifecycleProvider
 import com.trello.rxlifecycle2.LifecycleTransformer
@@ -16,6 +18,10 @@ import io.reactivex.subjects.BehaviorSubject
  * Desc:        <br>
  */
 abstract class MyBaseMvpActivity : BaseMvpActivity(), LifecycleProvider<ActivityEvent> {
+
+    lateinit var mContext: Context
+    var mDialog: MaterialDialog? = null
+
     private val lifecycleSubject = BehaviorSubject.create<ActivityEvent>()
 
     override fun lifecycle(): Observable<ActivityEvent> {
@@ -23,15 +29,39 @@ abstract class MyBaseMvpActivity : BaseMvpActivity(), LifecycleProvider<Activity
     }
 
     override fun <T : Any?> bindUntilEvent(event: ActivityEvent): LifecycleTransformer<T> {
-        return RxLifecycle.bindUntilEvent(lifecycleSubject, event!!)
+        return RxLifecycle.bindUntilEvent(lifecycleSubject, event)
     }
 
     override fun <T : Any?> bindToLifecycle(): LifecycleTransformer<T> {
         return bindUntilEvent(ActivityEvent.DESTROY)
     }
 
+    fun showLoadingDialog() {
+        showLoadingDialog(R.string.hint_data_loading)
+    }
+
+    fun showLoadingDialog(strId: Int) {
+        checkedDialog()
+        mDialog = MaterialDialog(mContext)
+            .cancelable(false)
+            .cancelOnTouchOutside(false)
+            .message(strId)
+        mDialog?.show()
+    }
+
+    fun dismissDialog() {
+        checkedDialog()
+    }
+
+    protected open fun checkedDialog() {
+        if (mDialog?.isShowing == true) {
+            mDialog?.dismiss()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mContext = this
         lifecycleSubject.onNext(ActivityEvent.CREATE)
     }
 

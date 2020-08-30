@@ -22,7 +22,9 @@ class NetworkServiceTestPresenter : BaseMvpPresenter<NetworkServiceTestView>() {
             .subscribe(object : DataCallback<List<GithubRepos>>() {
                 override fun successful(t: List<GithubRepos>?, response: Response<*>?) {
                     mvpView.dismissLoading()
-                    mvpView.onLoadDataSuccess(t)
+                    t?.also {
+                        mvpView.onLoadDataSuccess(t)
+                    }
                 }
 
                 override fun failed(message: String?, call: Call<List<GithubRepos>>?) {

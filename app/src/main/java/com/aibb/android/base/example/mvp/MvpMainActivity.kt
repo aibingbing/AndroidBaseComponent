@@ -29,16 +29,26 @@ class MvpMainActivity : MyBaseMvpActivity(), LoginView, AccountView {
     override fun initialize() {
         Log.i(javaClass.name, " initialize...")
         btnLogin.setOnClickListener {
-            mLoginPresenter.login()
+            val userName = userNameEdittext.text.toString()
+            val passwd = passwordEdittext.text.toString()
+            showLoadingDialog(R.string.hint_logining)
+            mLoginPresenter.login(userName, passwd)
         }
     }
 
-    override fun loginSuccess() {
-        Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show()
-        mAccountPresenter.saveAccount("abb", "123")
+    override fun loginSuccess(userName: String, password: String) {
+        dismissDialog()
+        Toast.makeText(this, getString(R.string.hint_login_success), Toast.LENGTH_LONG).show()
+        showLoadingDialog(R.string.hint_saving_account)
+        mAccountPresenter.saveAccount(userName, password)
     }
 
     override fun saveAccountSuccess(userName: String, password: String) {
-        Toast.makeText(this, "保存账户成功:${userName} / ${password}", Toast.LENGTH_LONG).show()
+        dismissDialog()
+        Toast.makeText(
+            this,
+            String.format(getString(R.string.hint_save_account_success), userName, password),
+            Toast.LENGTH_LONG
+        ).show()
     }
 }

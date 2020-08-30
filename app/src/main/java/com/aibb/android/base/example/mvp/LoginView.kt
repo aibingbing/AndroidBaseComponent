@@ -9,5 +9,5 @@ import com.aibb.android.base.mvp.IBaseMvpView
  * Desc:        <br>
  */
 interface LoginView : IBaseMvpView {
-    fun loginSuccess()
+    fun loginSuccess(userName: String, password: String)
 }
