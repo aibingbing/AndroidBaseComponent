@@ -1,9 +1,17 @@
-package com.aibb.android.base.example.network.view
+package com.aibb.android.base.example.mvp.fragment
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
-import com.aibb.android.base.example.MyBaseMvpActivity
+import butterknife.ButterKnife
 import com.aibb.android.base.example.R
+import com.aibb.android.base.example.base.MyBaseLazyMvpFragment
+import com.aibb.android.base.example.mvp.adapter.RecyclerViewAdapter
+import com.aibb.android.base.example.mvp.presenter.NetworkServiceTestPresenter
+import com.aibb.android.base.example.mvp.view.NetworkServiceTestView
 import com.aibb.android.base.example.network.pojo.GithubRepos
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
@@ -14,32 +22,24 @@ import com.kingja.loadsir.core.LoadSir
 import kotlinx.android.synthetic.main.net_service_test_layout.*
 
 
-/**
- * Copyright:   Copyright (c)  All rights reserved.<br>
- * Author:      aibingbing <br>
- * Date:        2020/8/29 <br>
- * Desc:        <br>
- */
 @MvpPresenterInject(values = [NetworkServiceTestPresenter::class])
-class NetworkServiceTestActivity : MyBaseMvpActivity(), NetworkServiceTestView {
+open class LazyMvpFragment1 : MyBaseLazyMvpFragment(), NetworkServiceTestView {
 
     @MvpPresenterVariable
-    lateinit var mNetworkServicePresenter: NetworkServiceTestPresenter
+    open lateinit var mNetworkServicePresenter: NetworkServiceTestPresenter
     lateinit var mLoadService: LoadService<Any>
     lateinit var mAdapter: RecyclerViewAdapter
-    val mReposList = ArrayList<GithubRepos>()
+    private val mReposList = ArrayList<GithubRepos>()
 
     override fun getLayoutId(): Int {
         return R.layout.net_service_test_layout
     }
 
-    override fun initialize() {
-        initLoadSir()
-        initRecyclerView()
-        mNetworkServicePresenter.loadData()
-    }
-
-    private fun initLoadSir() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val loadingCallback = ProgressCallback.Builder()
             .setTitle("Loading")
             //.setAboveSuccess(true)// attach loadingView above successView
@@ -51,24 +51,35 @@ class NetworkServiceTestActivity : MyBaseMvpActivity(), NetworkServiceTestView {
             .setHintImg(R.drawable.error)
             .build()
 
-        val loadSir = LoadSir.Builder()
+        val rootView: View = inflater.inflate(layoutId, container, false)
+        ButterKnife.bind(this, rootView)
+        mLoadService = LoadSir.Builder()
             .addCallback(loadingCallback)
             .addCallback(hintCallback)
-            .setDefaultCallback(ProgressCallback::class.java)
             .build()
+            .register(rootView) { v ->
+                mLoadService.showCallback(ProgressCallback::class.java)
+                mNetworkServicePresenter.loadData()
+            }
+        onCreateView(container, savedInstanceState)
+        return mLoadService.loadLayout
+    }
 
-        mLoadService = loadSir.register(this) {
-            mLoadService.showCallback(ProgressCallback::class.java)
-            mNetworkServicePresenter.loadData()
-        }
+    override fun onCreateView(container: View?, bundle: Bundle?) {
+    }
+
+    override fun initialize() {
     }
 
     private fun initRecyclerView() {
-        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         layoutManager.recycleChildrenOnDetach = true
         recyclerView.layoutManager = layoutManager
         (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
-        mAdapter = RecyclerViewAdapter(this, mReposList)
+        mAdapter = RecyclerViewAdapter(
+            requireContext(),
+            mReposList
+        )
         recyclerView.adapter = mAdapter
     }
 
@@ -85,4 +96,11 @@ class NetworkServiceTestActivity : MyBaseMvpActivity(), NetworkServiceTestView {
         mReposList.addAll(data)
         mAdapter.notifyDataSetChanged()
     }
+
+    override fun lazyInit() {
+        initRecyclerView()
+        mLoadService.showCallback(ProgressCallback::class.java)
+        mNetworkServicePresenter.loadData()
+    }
+
 }

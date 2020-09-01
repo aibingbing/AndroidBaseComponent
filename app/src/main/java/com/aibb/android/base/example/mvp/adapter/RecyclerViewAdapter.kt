@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.network.view
+package com.aibb.android.base.example.mvp.adapter
 
 import android.content.Context
 import android.widget.TextView

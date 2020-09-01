@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.MvpMainActivity" />
-        <activity android:name=".network.view.NetworkServiceTestActivity" />
+        <activity android:name=".mvp.NetworkServiceTestActivity" />
+        <activity android:name=".mvp.MvpViewPagerActivity" />
     </application>
 
 </manifest>

@@ -1,8 +1,9 @@
-package com.aibb.android.base.example
+package com.aibb.android.base.example.base
 
 import android.content.Context
 import android.os.Bundle
 import com.afollestad.materialdialogs.MaterialDialog
+import com.aibb.android.base.example.R
 import com.aibb.android.base.mvp.BaseMvpActivity
 import com.trello.rxlifecycle2.LifecycleProvider
 import com.trello.rxlifecycle2.LifecycleTransformer
@@ -37,20 +38,26 @@ abstract class MyBaseMvpActivity : BaseMvpActivity(), LifecycleProvider<Activity
     }
 
     fun showLoadingDialog() {
-        showLoadingDialog(R.string.hint_data_loading)
+        if (!isFinishing) {
+            showLoadingDialog(R.string.hint_data_loading)
+        }
     }
 
     fun showLoadingDialog(strId: Int) {
-        checkedDialog()
-        mDialog = MaterialDialog(mContext)
-            .cancelable(false)
-            .cancelOnTouchOutside(false)
-            .message(strId)
-        mDialog?.show()
+        if (!isFinishing) {
+            checkedDialog()
+            mDialog = MaterialDialog(mContext)
+                .cancelable(false)
+                .cancelOnTouchOutside(false)
+                .message(strId)
+            mDialog?.show()
+        }
     }
 
     fun dismissDialog() {
-        checkedDialog()
+        if (!isFinishing) {
+            checkedDialog()
+        }
     }
 
     protected open fun checkedDialog() {

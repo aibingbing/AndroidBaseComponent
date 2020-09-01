@@ -15,6 +15,14 @@
         android:text="Open MvpMainActivity" />
 
     <Button
+        android:id="@+id/mvpLazyFragmentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Open MvpViewPager Activity" />
+
+    <Button
         android:id="@+id/networkBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

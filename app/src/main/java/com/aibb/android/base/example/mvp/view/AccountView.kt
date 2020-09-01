@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.mvp
+package com.aibb.android.base.example.mvp.view
 
 import com.aibb.android.base.mvp.IBaseMvpView
 

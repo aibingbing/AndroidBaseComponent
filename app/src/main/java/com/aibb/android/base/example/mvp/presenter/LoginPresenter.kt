@@ -1,5 +1,6 @@
-package com.aibb.android.base.example.mvp
+package com.aibb.android.base.example.mvp.presenter
 
+import com.aibb.android.base.example.mvp.view.LoginView
 import com.aibb.android.base.mvp.BaseMvpPresenter
 import com.aibb.android.base.networkservice.DataCallback
 import io.reactivex.Observable
@@ -15,15 +16,15 @@ import java.util.concurrent.TimeUnit
  * Date:        2020/8/23 <br>
  * Desc:        <br>
  */
-class AccountPresenter : BaseMvpPresenter<AccountView>() {
-    fun saveAccount(userName: String, password: String) {
+class LoginPresenter : BaseMvpPresenter<LoginView>() {
+    fun login(userName: String, password: String) {
         Observable.just(true)
-            .delay(2, TimeUnit.SECONDS)
+            .delay(5, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : DataCallback<Boolean>() {
                 override fun successful(t: Boolean?, response: Response<*>?) {
-                    mvpView.saveAccountSuccess(userName, password)
+                    mvpView.loginSuccess(userName, password)
                 }
 
                 override fun failed(message: String?, call: Call<Boolean>?) {
