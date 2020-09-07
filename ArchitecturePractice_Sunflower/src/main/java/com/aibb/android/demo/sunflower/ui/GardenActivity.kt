@@ -1,7 +1,10 @@
-package com.aibb.android.demo.sunflower
+package com.aibb.android.demo.sunflower.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil.setContentView
+import com.aibb.android.demo.sunflower.R
+import com.aibb.android.demo.sunflower.databinding.ActivityGardenBinding
 
 /**
  * Copyright:   Copyright (c)  All rights reserved.<br>
@@ -12,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 class GardenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_garden)
+        setContentView<ActivityGardenBinding>(this,
+            R.layout.activity_garden
+        )
     }
 }
