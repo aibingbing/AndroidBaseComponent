@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.aibb.android.demo.sunflower.R
 import com.aibb.android.demo.sunflower.adapter.MY_GARDEN_PAGE_INDEX
@@ -18,7 +19,6 @@ class HomeViewPagerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
         val binding = FragmentViewPagerBinding.inflate(inflater, container, false)
         val tabLayout = binding.tabs
         val viewPager = binding.viewPager
@@ -30,6 +30,9 @@ class HomeViewPagerFragment : Fragment() {
             tab.text = getTabTitle(position)
         }.attach()
 
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
+        return binding.root
     }
 
     private fun getTabTitle(position: Int): String? {
