@@ -34,7 +34,7 @@
             android:paddingEnd="@dimen/card_side_margin"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="@integer/grid_columns"
-            tools:context="com.google.samples.apps.sunflower.GardenActivity"
+            tools:context="com.aibb.android.demo.sunflower.ui.GardenActivity"
             tools:listitem="@layout/list_item_photo" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

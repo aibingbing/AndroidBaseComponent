@@ -1,7 +1,6 @@
 package com.aibb.android.demo.sunflower.data
 
 import android.content.Context
-import androidx.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -13,6 +12,7 @@ import com.aibb.android.demo.sunflower.data.dao.GardenPlantingDao
 import com.aibb.android.demo.sunflower.data.dao.PlantDao
 import com.aibb.android.demo.sunflower.data.pojo.GardenPlanting
 import com.aibb.android.demo.sunflower.data.pojo.Plant
+import com.aibb.android.demo.sunflower.data.repository.Converters
 import com.aibb.android.demo.sunflower.utilities.DATABASE_NAME
 import com.aibb.android.demo.sunflower.worker.SeedDatabaseWorker
 

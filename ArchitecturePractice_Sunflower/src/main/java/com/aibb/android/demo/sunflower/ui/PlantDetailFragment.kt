@@ -1,6 +1,7 @@
 package com.aibb.android.demo.sunflower.ui
 
 import androidx.fragment.app.Fragment
+import com.aibb.android.demo.sunflower.data.pojo.Plant
 
 /**
  * Copyright:   Copyright (c)  All rights reserved.<br>
@@ -10,4 +11,9 @@ import androidx.fragment.app.Fragment
  */
 class PlantDetailFragment :Fragment(){
 
+//    private val args:PlantDetail
+
+    interface Callback {
+        fun add(plant: Plant?)
+    }
 }

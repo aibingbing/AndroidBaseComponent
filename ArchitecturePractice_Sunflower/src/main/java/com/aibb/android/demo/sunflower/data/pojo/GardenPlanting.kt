@@ -23,7 +23,7 @@ data class GardenPlanting(
     val plantId: String,
     @ColumnInfo(name = "plant_date")
     val plantDate: Calendar = Calendar.getInstance(),
-    @ColumnInfo
+    @ColumnInfo(name = "last_watering_date")
     val lastWateringDate: Calendar = Calendar.getInstance()
 ) {
     @PrimaryKey(autoGenerate = true)

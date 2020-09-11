@@ -21,6 +21,9 @@ class GardenPlantingRepository private constructor(
         gardenPlantingDao.deleteGardenPlanting(gardenPlanting)
     }
 
+    fun isPlanted(plantId: String) =
+        gardenPlantingDao.isPlanted(plantId)
+
     fun getPlantedGardens() = gardenPlantingDao.getPlantedGardens()
 
     companion object {
