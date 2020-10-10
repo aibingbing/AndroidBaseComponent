@@ -25,4 +25,6 @@ data class Plant(
         since > lastWateringDate.apply {
             add(DAY_OF_YEAR, wateringInterval)
         }
+
+    override fun toString() = name
 }

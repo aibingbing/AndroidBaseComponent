@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/plant_detail_fragment"
-        android:name="com.aibb.android.demo.sunflower.ui.PlantListFragment"
+        android:name="com.aibb.android.demo.sunflower.ui.PlantDetailFragment"
         android:label="@string/plant_details_title"
         tools:layout="@layout/fragment_plant_detail">
 
