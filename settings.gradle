@@ -1,7 +1,7 @@
-include ':LogCollect'
 rootProject.name='BaseComponent'
 include ':app'
 include ':BaseMVP'
 include ':BaseNetworkService'
 include ':BaseMVVM'
+include ':BaseLogCollect'
 include ':ArchitecturePractice_Sunflower'
