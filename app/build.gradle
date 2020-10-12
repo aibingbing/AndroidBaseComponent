@@ -7,7 +7,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.aibb.android.base.sunflower"
+        applicationId "com.aibb.android.base.demo"
         minSdkVersion 18
         targetSdkVersion 29
         versionCode 1
@@ -42,6 +42,7 @@ dependencies {
 
     api project(':BaseMVP')
     api project(':BaseNetworkService')
+    api project(':LogCollect')
 //    implementation 'com.aibb.android.base:BaseMVP:0.1.0'
     implementation 'com.kingja.loadsir:loadsir:1.3.8'
     implementation 'com.afollestad.material-dialogs:core:3.3.0'

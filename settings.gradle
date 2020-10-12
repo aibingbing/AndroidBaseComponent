@@ -1,3 +1,4 @@
+include ':LogCollect'
 rootProject.name='BaseComponent'
 include ':app'
 include ':BaseMVP'

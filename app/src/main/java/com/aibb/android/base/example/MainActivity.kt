@@ -7,6 +7,7 @@ import butterknife.ButterKnife
 import com.aibb.android.base.example.mvp.MvpMainActivity
 import com.aibb.android.base.example.mvp.MvpViewPagerActivity
 import com.aibb.android.base.example.mvp.NetworkServiceTestActivity
+import com.aibb.android.base.log.LogCollect
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -27,5 +28,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, NetworkServiceTestActivity::class.java)
             startActivity(intent)
         }
+        LogCollect.i("onCreate")
     }
 }

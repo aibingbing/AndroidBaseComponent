@@ -2,6 +2,7 @@ package com.aibb.android.base.example;
 
 import android.app.Application;
 
+import com.aibb.android.base.log.LogCollect;
 import com.aibb.android.base.networkservice.RetrofitFactory;
 
 import java.util.Locale;
@@ -16,12 +17,24 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initRetorfit();
+        initRetrofit();
+        initLog();
     }
 
-    private void initRetorfit() {
+    private void initRetrofit() {
         RetrofitFactory.initApplicatonContext(this);
         RetrofitFactory.addGlobalHeader("Accept-Language", Locale.getDefault().getLanguage());
+    }
+
+    private void initLog() {
+        LogCollect.init(
+                getApplicationContext(),
+                LogCollect.newConfig()
+                        .logLevel(BuildConfig.DEBUG ? LogCollect.DEBUG : LogCollect.INFO)
+                        .enableFileLog(true)
+                        .enableConsoleLog(BuildConfig.DEBUG)
+                        .fileLogMaxAliveTime(5 * 24 * 60 * 60)
+        );
     }
 
 }
