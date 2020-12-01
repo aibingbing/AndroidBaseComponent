@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android Component</string>
+    <string name="app_name">Android Component &amp; Third Party Library</string>
     <string name="mvp_login">Login</string>
     <string name="hint_data_loading">loading...</string>
     <string name="hint_input_username">please input username</string>
@@ -8,4 +8,5 @@
     <string name="hint_save_account_success">Save Account success:%s / %s</string>
     <string name="hint_logining">Login...</string>
     <string name="hint_saving_account">Saving Account...</string>
+    <string name="hint_login_not_empty">Username and passport cannot be empty.</string>
 </resources>

@@ -10,6 +10,7 @@ import com.aibb.android.base.example.mvp.view.NetworkServiceTestView
 import com.aibb.android.base.example.mvp.adapter.RecyclerViewAdapter
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
+import com.blankj.utilcode.utils.ToastUtils
 import com.kingja.loadsir.callback.HintCallback
 import com.kingja.loadsir.callback.ProgressCallback
 import com.kingja.loadsir.core.LoadService
@@ -72,11 +73,7 @@ class NetworkServiceTestActivity : MyBaseMvpActivity(),
         layoutManager.recycleChildrenOnDetach = true
         recyclerView.layoutManager = layoutManager
         (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
-        mAdapter =
-            RecyclerViewAdapter(
-                this,
-                mReposList
-            )
+        mAdapter = RecyclerViewAdapter(this, mReposList)
         recyclerView.adapter = mAdapter
     }
 
@@ -92,5 +89,6 @@ class NetworkServiceTestActivity : MyBaseMvpActivity(),
         mReposList.clear()
         mReposList.addAll(data)
         mAdapter.notifyDataSetChanged()
+        ToastUtils.showShortToast(this, "Load JakeWharton's repos success")
     }
 }

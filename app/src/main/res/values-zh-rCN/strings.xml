@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">组件化</string>
+    <string name="app_name">Android Component &amp; Third Party Library</string>
     <string name="mvp_login">登录</string>
     <string name="hint_data_loading">加载中...</string>
     <string name="hint_input_username">请输入用户名</string>
@@ -9,4 +9,5 @@
     <string name="hint_save_account_success">保存账户成功:%s / %s</string>
     <string name="hint_logining">登录中...</string>
     <string name="hint_saving_account">保存账户中...</string>
+    <string name="hint_login_not_empty">用户名或密码不能为空</string>
 </resources>

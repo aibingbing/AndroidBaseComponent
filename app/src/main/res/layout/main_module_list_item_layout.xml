@@ -3,18 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/name"
+    <com.aibb.android.base.example.view.SquareTextView
+        android:id="@+id/moduleTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:gravity="center"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
         android:textColor="#FFFFFF"
-        tools:text="TestTest" />
+        tools:text="Main Module" />
 </LinearLayout>

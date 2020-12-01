@@ -15,6 +15,7 @@ import com.aibb.android.base.example.mvp.view.NetworkServiceTestView
 import com.aibb.android.base.example.network.pojo.GithubRepos
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
+import com.blankj.utilcode.utils.ToastUtils
 import com.kingja.loadsir.callback.HintCallback
 import com.kingja.loadsir.callback.ProgressCallback
 import com.kingja.loadsir.core.LoadService
@@ -76,10 +77,7 @@ open class LazyMvpFragment1 : MyBaseLazyMvpFragment(), NetworkServiceTestView {
         layoutManager.recycleChildrenOnDetach = true
         recyclerView.layoutManager = layoutManager
         (recyclerView.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
-        mAdapter = RecyclerViewAdapter(
-            requireContext(),
-            mReposList
-        )
+        mAdapter = RecyclerViewAdapter(requireContext(), mReposList)
         recyclerView.adapter = mAdapter
     }
 
@@ -95,6 +93,7 @@ open class LazyMvpFragment1 : MyBaseLazyMvpFragment(), NetworkServiceTestView {
         mReposList.clear()
         mReposList.addAll(data)
         mAdapter.notifyDataSetChanged()
+        ToastUtils.showShortToast(context, "Load JakeWharton's repos success")
     }
 
     override fun lazyInit() {
