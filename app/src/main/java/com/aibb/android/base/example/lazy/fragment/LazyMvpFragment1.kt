@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.mvp.fragment
+package com.aibb.android.base.example.lazy.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import butterknife.ButterKnife
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.base.MyBaseLazyMvpFragment
 import com.aibb.android.base.example.mvp.adapter.RecyclerViewAdapter
-import com.aibb.android.base.example.mvp.presenter.NetworkServiceTestPresenter
-import com.aibb.android.base.example.mvp.view.NetworkServiceTestView
+import com.aibb.android.base.example.network.presenter.NetworkServiceTestPresenter
+import com.aibb.android.base.example.network.view.NetworkServiceTestView
 import com.aibb.android.base.example.network.pojo.GithubRepos
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
@@ -24,7 +24,8 @@ import kotlinx.android.synthetic.main.net_service_test_layout.*
 
 
 @MvpPresenterInject(values = [NetworkServiceTestPresenter::class])
-open class LazyMvpFragment1 : MyBaseLazyMvpFragment(), NetworkServiceTestView {
+open class LazyMvpFragment1 : MyBaseLazyMvpFragment(),
+    NetworkServiceTestView {
 
     @MvpPresenterVariable
     open lateinit var mNetworkServicePresenter: NetworkServiceTestPresenter

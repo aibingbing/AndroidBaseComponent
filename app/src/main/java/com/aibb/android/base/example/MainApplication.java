@@ -7,12 +7,15 @@ import com.aibb.android.base.networkservice.RetrofitFactory;
 
 import java.util.Locale;
 
+import dagger.hilt.android.HiltAndroidApp;
+
 /**
  * Copyright:   Copyright (c)  All rights reserved.<br>
  * Author:      aibingbing <br>
  * Date:        2020/8/29 <br>
  * Desc:        <br>
  */
+@HiltAndroidApp
 public class MainApplication extends Application {
     @Override
     public void onCreate() {

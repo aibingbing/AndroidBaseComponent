@@ -1,11 +1,11 @@
-package com.aibb.android.base.example.mvp
+package com.aibb.android.base.example.lazy.activity
 
 import androidx.fragment.app.Fragment
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.base.MyBaseMvpActivity
-import com.aibb.android.base.example.mvp.adapter.ViewPagerAdapter
-import com.aibb.android.base.example.mvp.fragment.LazyMvpFragment1
-import com.aibb.android.base.example.mvp.fragment.LazyMvpFragment2
+import com.aibb.android.base.example.lazy.adapter.ViewPagerAdapter
+import com.aibb.android.base.example.lazy.fragment.LazyMvpFragment1
+import com.aibb.android.base.example.lazy.fragment.LazyMvpFragment2
 import kotlinx.android.synthetic.main.mvp_viewpager_activity.*
 
 class MvpViewPagerActivity : MyBaseMvpActivity() {

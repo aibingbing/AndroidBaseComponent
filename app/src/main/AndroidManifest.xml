@@ -10,16 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.aibb.android.base.example.main.MainActivity">
+        <activity android:name="com.aibb.android.base.example.main.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.MvpMainActivity" />
-        <activity android:name=".mvp.NetworkServiceTestActivity" />
-        <activity android:name=".mvp.MvpViewPagerActivity" />
+        <activity android:name=".mvp.activity.MvpMainActivity" />
+        <activity android:name=".network.activity.NetworkServiceTestActivity" />
+        <activity android:name=".lazy.activity.MvpViewPagerActivity" />
+        <activity android:name=".hilt.activity.HiltTestActivity" />
     </application>
 
 </manifest>

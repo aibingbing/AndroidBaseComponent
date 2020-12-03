@@ -1,10 +1,11 @@
-package com.aibb.android.base.example.main
+package com.aibb.android.base.example.main.adapter
 
 import android.content.Context
 import android.graphics.Color
 import com.aibb.android.base.example.R
+import com.aibb.android.base.example.main.pojo.MainModule
 import com.aibb.android.base.example.network.pojo.GithubRepos
-import com.aibb.android.base.example.view.SquareTextView
+import com.aibb.android.base.example.widget.SquareTextView
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import kotlin.random.Random

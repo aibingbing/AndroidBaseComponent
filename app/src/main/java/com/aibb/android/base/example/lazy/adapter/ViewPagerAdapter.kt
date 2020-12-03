@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.mvp.adapter
+package com.aibb.android.base.example.lazy.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

@@ -1,6 +1,6 @@
-package com.aibb.android.base.example.mvp.fragment
+package com.aibb.android.base.example.lazy.fragment
 
-import com.aibb.android.base.example.mvp.presenter.NetworkServiceTestPresenter
+import com.aibb.android.base.example.network.presenter.NetworkServiceTestPresenter
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
 

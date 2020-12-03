@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.mvp.view;
+package com.aibb.android.base.example.network.view;
 
 import com.aibb.android.base.example.network.pojo.GithubRepos;
 import com.aibb.android.base.mvp.IBaseMvpView;

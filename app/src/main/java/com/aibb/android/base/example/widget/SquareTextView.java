@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.view;
+package com.aibb.android.base.example.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

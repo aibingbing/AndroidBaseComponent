@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.main
+package com.aibb.android.base.example.main.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import butterknife.ButterKnife
 import com.aibb.android.base.example.R
-import com.aibb.android.base.example.mvp.MvpMainActivity
-import com.aibb.android.base.example.mvp.MvpViewPagerActivity
-import com.aibb.android.base.example.mvp.NetworkServiceTestActivity
+import com.aibb.android.base.example.hilt.activity.HiltTestActivity
+import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
+import com.aibb.android.base.example.main.adapter.MainAdapter
+import com.aibb.android.base.example.main.pojo.MainModule
+import com.aibb.android.base.example.mvp.activity.MvpMainActivity
+import com.aibb.android.base.example.network.activity.NetworkServiceTestActivity
+import com.aibb.android.base.example.widget.GridDividerItemDecoration
 import com.aibb.android.base.log.LogCollect
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -54,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 3 -> {
-                    val intent = Intent(this, NetworkServiceTestActivity::class.java)
+                    val intent = Intent(this, HiltTestActivity::class.java)
                     startActivity(intent)
                 }
                 4 -> {
@@ -72,11 +76,12 @@ class MainActivity : AppCompatActivity() {
         gridSpacingItemDecoration?.also {
             recyclerView.removeItemDecoration(it)
         }
-        gridSpacingItemDecoration = GridDividerItemDecoration(
-            4,
-            resources.getDimensionPixelSize(R.dimen.main_module_item_divide),
-            resources.getDimensionPixelSize(R.dimen.main_module_item_divide)
-        )
+        gridSpacingItemDecoration =
+            GridDividerItemDecoration(
+                4,
+                resources.getDimensionPixelSize(R.dimen.main_module_item_divide),
+                resources.getDimensionPixelSize(R.dimen.main_module_item_divide)
+            )
         recyclerView.addItemDecoration(gridSpacingItemDecoration!!)
 
         adapter = MainAdapter(this, modules)

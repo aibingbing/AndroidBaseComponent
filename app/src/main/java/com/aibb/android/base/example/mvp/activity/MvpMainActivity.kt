@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.mvp
+package com.aibb.android.base.example.mvp.activity
 
 import android.text.TextUtils
 import android.util.Log

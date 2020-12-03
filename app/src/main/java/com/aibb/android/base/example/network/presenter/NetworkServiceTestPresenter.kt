@@ -1,9 +1,9 @@
-package com.aibb.android.base.example.mvp.presenter
+package com.aibb.android.base.example.network.presenter
 
 import com.aibb.android.base.example.base.MyBaseMvpActivity
-import com.aibb.android.base.example.mvp.view.NetworkServiceTestView
 import com.aibb.android.base.example.network.api.GithubApiService
 import com.aibb.android.base.example.network.pojo.GithubRepos
+import com.aibb.android.base.example.network.view.NetworkServiceTestView
 import com.aibb.android.base.mvp.BaseMvpPresenter
 import com.aibb.android.base.networkservice.DataCallback
 import retrofit2.Call

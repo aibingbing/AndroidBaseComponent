@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.main
+package com.aibb.android.base.example.main.pojo
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import java.io.Serializable

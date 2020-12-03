@@ -1,12 +1,12 @@
-package com.aibb.android.base.example.mvp
+package com.aibb.android.base.example.network.activity
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.aibb.android.base.example.base.MyBaseMvpActivity
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.network.pojo.GithubRepos
-import com.aibb.android.base.example.mvp.presenter.NetworkServiceTestPresenter
-import com.aibb.android.base.example.mvp.view.NetworkServiceTestView
+import com.aibb.android.base.example.network.presenter.NetworkServiceTestPresenter
+import com.aibb.android.base.example.network.view.NetworkServiceTestView
 import com.aibb.android.base.example.mvp.adapter.RecyclerViewAdapter
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable

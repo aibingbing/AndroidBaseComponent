@@ -1,4 +1,4 @@
-package com.aibb.android.base.example.main;
+package com.aibb.android.base.example.widget;
 
 import android.graphics.Rect;
 import android.util.Log;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class GridDividerItemDecoration extends RecyclerView.ItemDecoration {
 
-    private final String TAG = "GridDividerItemDecoration";
+    private final String TAG = "GridDivItemDecoration";
 
     private int mSpanCount;//横条目数量
     private int mRowSpacing;//行间距
