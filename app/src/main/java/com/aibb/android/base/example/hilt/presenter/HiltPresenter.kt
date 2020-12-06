@@ -1,29 +1,28 @@
 package com.aibb.android.base.example.hilt.presenter
 
 import com.aibb.android.base.example.base.MyBaseMvpActivity
-import com.aibb.android.base.example.hilt.activity.HiltTestActivity
-import com.aibb.android.base.example.hilt.api.RepositoryService
-import com.aibb.android.base.example.hilt.pojo.Repository
-import com.aibb.android.base.example.hilt.view.IHiltView
+import com.aibb.android.base.example.hilt.api.HiltService
+import com.aibb.android.base.example.hilt.pojo.HiltItem
+import com.aibb.android.base.example.hilt.view.HiltView
 import com.aibb.android.base.mvp.BaseMvpPresenter
 import com.aibb.android.base.networkservice.DataCallback
 import retrofit2.Call
 import retrofit2.Response
 
-class HiltPresenter : BaseMvpPresenter<IHiltView>() {
+class HiltPresenter : BaseMvpPresenter<HiltView>() {
     fun loadData() {
-        RepositoryService
-            .getSquareGithubRepository()
-            .compose((mvpView.baseActivity as HiltTestActivity).bindToLifecycle())
-            .subscribe(object : DataCallback<List<Repository>>() {
-                override fun successful(t: List<Repository>?, response: Response<*>?) {
+        HiltService
+            .getGithubRespo()
+            .compose((mvpView.baseActivity as MyBaseMvpActivity).bindToLifecycle())
+            .subscribe(object : DataCallback<List<HiltItem>>() {
+                override fun successful(t: List<HiltItem>?, response: Response<*>?) {
                     mvpView.dismissLoading()
                     t?.also {
                         mvpView.onLoadDataSuccess(t)
                     }
                 }
 
-                override fun failed(message: String?, call: Call<List<Repository>>?) {
+                override fun failed(message: String?, call: Call<List<HiltItem>>?) {
                     mvpView.dismissLoading()
                     mvpView.onLoadDataFailed()
                 }

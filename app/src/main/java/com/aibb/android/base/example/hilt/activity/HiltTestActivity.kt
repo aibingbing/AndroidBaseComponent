@@ -4,9 +4,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.base.MyBaseMvpActivity
 import com.aibb.android.base.example.hilt.adapter.HiltAdapter
-import com.aibb.android.base.example.hilt.pojo.Repository
+import com.aibb.android.base.example.hilt.pojo.HiltItem
 import com.aibb.android.base.example.hilt.presenter.HiltPresenter
-import com.aibb.android.base.example.hilt.view.IHiltView
+import com.aibb.android.base.example.hilt.view.HiltView
 import com.aibb.android.base.example.widget.GridDividerItemDecoration
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
@@ -18,12 +18,12 @@ import com.kingja.loadsir.core.LoadSir
 import kotlinx.android.synthetic.main.hilt_test_layout.*
 
 @MvpPresenterInject(values = [HiltPresenter::class])
-class HiltTestActivity : MyBaseMvpActivity(), IHiltView {
+class HiltTestActivity : MyBaseMvpActivity(), HiltView {
     @MvpPresenterVariable
     lateinit var repositoryPresenter: HiltPresenter
     lateinit var loadService: LoadService<Any>
     lateinit var adapter: HiltAdapter
-    private val reposList = ArrayList<Repository>()
+    private val reposList = ArrayList<HiltItem>()
     private var gridSpacingItemDecoration: GridDividerItemDecoration? = null
 
     override fun initialize() {
@@ -40,7 +40,7 @@ class HiltTestActivity : MyBaseMvpActivity(), IHiltView {
         loadService.showSuccess()
     }
 
-    override fun onLoadDataSuccess(data: List<Repository>) {
+    override fun onLoadDataSuccess(data: List<HiltItem>) {
         reposList.clear()
         reposList.addAll(data)
         adapter.notifyDataSetChanged()

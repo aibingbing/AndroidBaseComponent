@@ -1,20 +1,32 @@
 package com.aibb.android.base.example.hilt.adapter
 
-import android.widget.TextView
+import android.graphics.Color
 import com.aibb.android.base.example.R
-import com.aibb.android.base.example.hilt.pojo.Repository
+import com.aibb.android.base.example.hilt.pojo.HiltItem
+import com.aibb.android.base.example.widget.SquareTextView
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import kotlin.random.Random
 
-class HiltAdapter(repositorys: List<Repository>) :
-    BaseMultiItemQuickAdapter<Repository, BaseViewHolder>(repositorys) {
+class HiltAdapter(hiltItems: List<HiltItem>) :
+    BaseMultiItemQuickAdapter<HiltItem, BaseViewHolder>(hiltItems) {
+
+    private var random: Random
 
     init {
-        addItemType(Repository.itemType, R.layout.hilt_list_item_layout)
+        addItemType(HiltItem.ItemTypeNewRecord, R.layout.hilt_list_item_layout)
+        random = Random(256)
     }
 
-    override fun convert(helper: BaseViewHolder, item: Repository) {
-        val nameText: TextView = helper.getView(R.id.name)
+    override fun convert(helper: BaseViewHolder, item: HiltItem) {
+        val nameText: SquareTextView = helper.getView(R.id.name)
         nameText.text = item.name
+        nameText.setBackgroundColor(
+            Color.rgb(
+                random.nextInt(256),
+                random.nextInt(256),
+                random.nextInt(256)
+            )
+        )
     }
 }

@@ -13,7 +13,7 @@ import kotlin.random.Random
 class MainAdapter(val context: Context, modules: List<MainModule>) :
     BaseMultiItemQuickAdapter<MainModule, BaseViewHolder>(modules) {
 
-    var random: Random
+    private var random: Random
 
     init {
         addItemType(GithubRepos.ItemTypeNewRecord, R.layout.main_module_list_item_layout)

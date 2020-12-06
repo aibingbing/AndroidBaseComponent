@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 4 -> {
-                    val intent = Intent(this, NetworkServiceTestActivity::class.java)
+                    val intent = Intent(this, HiltTestActivity::class.java)
                     startActivity(intent)
                 }
             }
