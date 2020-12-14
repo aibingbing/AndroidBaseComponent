@@ -86,6 +86,10 @@ android {
         freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
