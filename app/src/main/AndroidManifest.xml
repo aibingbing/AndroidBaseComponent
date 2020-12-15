@@ -21,6 +21,7 @@
         <activity android:name=".network.activity.NetworkServiceTestActivity" />
         <activity android:name=".lazy.activity.MvpViewPagerActivity" />
         <activity android:name=".hilt.activity.HiltTestActivity" />
+        <activity android:name=".datastore.activity.DataStoreTestActivity" />
     </application>
 
 </manifest>

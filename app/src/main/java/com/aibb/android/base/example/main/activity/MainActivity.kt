@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import butterknife.ButterKnife
 import com.aibb.android.base.example.R
+import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
 import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
 import com.aibb.android.base.example.main.adapter.MainAdapter
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 4 -> {
-                    val intent = Intent(this, HiltTestActivity::class.java)
+                    val intent = Intent(this, DataStoreTestActivity::class.java)
                     startActivity(intent)
                 }
             }
