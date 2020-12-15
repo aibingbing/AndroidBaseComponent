@@ -15,13 +15,18 @@ import com.kingja.loadsir.callback.HintCallback
 import com.kingja.loadsir.callback.ProgressCallback
 import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.hilt_test_layout.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 @MvpPresenterInject(values = [HiltPresenter::class])
 class HiltTestActivity : MyBaseMvpActivity(), HiltView {
     @MvpPresenterVariable
     lateinit var repositoryPresenter: HiltPresenter
     lateinit var loadService: LoadService<Any>
+
+    @Inject
     lateinit var adapter: HiltAdapter
     private val reposList = ArrayList<HiltItem>()
     private var gridSpacingItemDecoration: GridDividerItemDecoration? = null
@@ -43,7 +48,7 @@ class HiltTestActivity : MyBaseMvpActivity(), HiltView {
     override fun onLoadDataSuccess(data: List<HiltItem>) {
         reposList.clear()
         reposList.addAll(data)
-        adapter.notifyDataSetChanged()
+        adapter.setNewData(reposList)
         ToastUtils.showShortToast(this, "Load Square's repos success")
     }
 
@@ -88,8 +93,6 @@ class HiltTestActivity : MyBaseMvpActivity(), HiltView {
                 resources.getDimensionPixelSize(R.dimen.main_module_item_divide)
             )
         recyclerView.addItemDecoration(gridSpacingItemDecoration!!)
-
-        adapter = HiltAdapter(reposList)
         recyclerView.adapter = adapter
     }
 }

@@ -4,19 +4,14 @@ import android.graphics.Color
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.hilt.pojo.HiltItem
 import com.aibb.android.base.example.widget.SquareTextView
-import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import javax.inject.Inject
 import kotlin.random.Random
 
-class HiltAdapter(hiltItems: List<HiltItem>) :
-    BaseMultiItemQuickAdapter<HiltItem, BaseViewHolder>(hiltItems) {
+class HiltAdapter @Inject constructor(): BaseQuickAdapter<HiltItem, BaseViewHolder>(R.layout.hilt_list_item_layout) {
 
-    private var random: Random
-
-    init {
-        addItemType(HiltItem.ItemTypeNewRecord, R.layout.hilt_list_item_layout)
-        random = Random(256)
-    }
+    private var random: Random = Random(256)
 
     override fun convert(helper: BaseViewHolder, item: HiltItem) {
         val nameText: SquareTextView = helper.getView(R.id.name)
@@ -29,4 +24,13 @@ class HiltAdapter(hiltItems: List<HiltItem>) :
             )
         )
     }
+
+//    @Module
+//    @InstallIn(ActivityComponent::class)
+//    object HiltAdapterModule {
+//        @Provides
+//        fun provideHiltAdapter(hiltItems: List<HiltItem>): HiltAdapter {
+//            return HiltAdapter(hiltItems)
+//        }
+//    }
 }
