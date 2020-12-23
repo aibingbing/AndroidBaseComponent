@@ -1,0 +1,15 @@
+//语言版本
+syntax = "proto3";
+
+//包名
+option java_package = "com.aibb.android.base.example.datastore.proto";
+option java_multiple_files = true;
+
+//每一个新的类型用 message 表示
+message UserInfoPreferences {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+  string telephone = 4;
+  string city = 5;
+}

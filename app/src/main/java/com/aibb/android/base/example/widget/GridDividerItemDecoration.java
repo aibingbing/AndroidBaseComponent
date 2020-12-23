@@ -37,7 +37,7 @@ public class GridDividerItemDecoration extends RecyclerView.ItemDecoration {
         outRect.left = column * mColumnSpacing / mSpanCount; // column * (列间距 * (1f / 列数))
         outRect.right = mColumnSpacing - (column + 1) * mColumnSpacing / mSpanCount; // 列间距 - (column + 1) * (列间距 * (1f /列数))
 
-        Log.e(TAG, "position:" + position
+        Log.d(TAG, "position:" + position
                 + "    columnIndex: " + column
                 + "    left,right ->" + outRect.left + "," + outRect.right);
 
