@@ -9,6 +9,7 @@ import com.aibb.android.base.example.R
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
 import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
+import com.aibb.android.base.example.lifecycle.activity.LifecycleTestActivity
 import com.aibb.android.base.example.main.adapter.MainAdapter
 import com.aibb.android.base.example.main.pojo.MainModule
 import com.aibb.android.base.example.mvp.activity.MvpMainActivity
@@ -38,11 +39,13 @@ class MainActivity : AppCompatActivity() {
         val networkModule = MainModule("RetrofitFactory")
         val hiltModule = MainModule("Hilt")
         val dataStoreModule = MainModule("DataStore")
+        val lifeCycleModule = MainModule("LifeCycle")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
         modules.add(hiltModule)
         modules.add(dataStoreModule)
+        modules.add(lifeCycleModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -64,6 +67,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 4 -> {
                     val intent = Intent(this, DataStoreTestActivity::class.java)
+                    startActivity(intent)
+                }
+                5 -> {
+                    val intent = Intent(this, LifecycleTestActivity::class.java)
                     startActivity(intent)
                 }
             }
