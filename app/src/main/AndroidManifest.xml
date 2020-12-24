@@ -25,6 +25,7 @@
         <activity android:name=".lifecycle.activity.LifecycleTestActivity" />
         <activity android:name=".lifecycle.activity.LifecycleTestActivity1" />
         <activity android:name=".livedata.activity.LiveDataTestActivity" />
+        <activity android:name=".viewmodel.activity.ViewModelTestActivity" />
     </application>
 
 </manifest>

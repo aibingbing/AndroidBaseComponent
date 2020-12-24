@@ -15,6 +15,7 @@ import com.aibb.android.base.example.main.adapter.MainAdapter
 import com.aibb.android.base.example.main.pojo.MainModule
 import com.aibb.android.base.example.mvp.activity.MvpMainActivity
 import com.aibb.android.base.example.network.activity.NetworkServiceTestActivity
+import com.aibb.android.base.example.viewmodel.activity.ViewModelTestActivity
 import com.aibb.android.base.example.widget.GridDividerItemDecoration
 import com.aibb.android.base.log.LogCollect
 import kotlinx.android.synthetic.main.activity_main.*
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         val dataStoreModule = MainModule("DataStore")
         val lifeCycleModule = MainModule("LifeCycle")
         val liveDataModule = MainModule("LiveData")
+        val viewModelModule = MainModule("ViewModel")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(dataStoreModule)
         modules.add(lifeCycleModule)
         modules.add(liveDataModule)
+        modules.add(viewModelModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -78,6 +81,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 6 -> {
                     val intent = Intent(this, LiveDataTestActivity::class.java)
+                    startActivity(intent)
+                }
+                7 -> {
+                    val intent = Intent(this, ViewModelTestActivity::class.java)
                     startActivity(intent)
                 }
             }
