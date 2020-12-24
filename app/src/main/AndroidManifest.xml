@@ -24,6 +24,7 @@
         <activity android:name=".datastore.activity.DataStoreTestActivity" />
         <activity android:name=".lifecycle.activity.LifecycleTestActivity" />
         <activity android:name=".lifecycle.activity.LifecycleTestActivity1" />
+        <activity android:name=".livedata.activity.LiveDataTestActivity" />
     </application>
 
 </manifest>

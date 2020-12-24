@@ -10,6 +10,7 @@ import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
 import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
 import com.aibb.android.base.example.lifecycle.activity.LifecycleTestActivity
+import com.aibb.android.base.example.livedata.activity.LiveDataTestActivity
 import com.aibb.android.base.example.main.adapter.MainAdapter
 import com.aibb.android.base.example.main.pojo.MainModule
 import com.aibb.android.base.example.mvp.activity.MvpMainActivity
@@ -40,12 +41,14 @@ class MainActivity : AppCompatActivity() {
         val hiltModule = MainModule("Hilt")
         val dataStoreModule = MainModule("DataStore")
         val lifeCycleModule = MainModule("LifeCycle")
+        val liveDataModule = MainModule("LiveData")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
         modules.add(hiltModule)
         modules.add(dataStoreModule)
         modules.add(lifeCycleModule)
+        modules.add(liveDataModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -71,6 +74,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 5 -> {
                     val intent = Intent(this, LifecycleTestActivity::class.java)
+                    startActivity(intent)
+                }
+                6 -> {
+                    val intent = Intent(this, LiveDataTestActivity::class.java)
                     startActivity(intent)
                 }
             }
