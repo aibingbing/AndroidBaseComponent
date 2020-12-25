@@ -4,14 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.multidex.MultiDex;
 import androidx.room.Room;
 
 import com.aibb.android.base.example.room.db.MyRoomDatabase;
-import com.aibb.android.base.log.LogCollect;
 import com.aibb.android.base.networkservice.RetrofitFactory;
-import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Locale;
@@ -27,6 +24,7 @@ import dagger.hilt.android.HiltAndroidApp;
 @HiltAndroidApp
 public class MainApplication extends Application {
 
+    private static final String TAG = "MainApplication";
     private static MyRoomDatabase database;
     private static MainApplication mContext;
 
@@ -34,52 +32,20 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        initRoom();
+        // retrofit, leakcanary 依赖Application，放onCreate初始化
         initRetrofit();
-        initLog();
-        initCrashCatch();
-        initStetho();
         initLeakCanary();
     }
 
-    private void initRoom() {
-        database = Room.databaseBuilder(getApplicationContext(), MyRoomDatabase.class, "db_room")
-//                .createFromAsset("database/myapp.db")
-//                .fallbackToDestructiveMigration()
-                .build();
-    }
-
     private void initRetrofit() {
+        Log.i(TAG, "Retrofit init");
         RetrofitFactory.initApplicatonContext(this);
         RetrofitFactory.addGlobalHeader("Accept-Language", Locale.getDefault().getLanguage());
     }
 
-    private void initLog() {
-        LogCollect.init(
-                getApplicationContext(),
-                LogCollect.newConfig()
-                        .logLevel(BuildConfig.DEBUG ? LogCollect.DEBUG : LogCollect.INFO)
-                        .enableFileLog(true)
-                        .enableConsoleLog(BuildConfig.DEBUG)
-                        .fileLogMaxAliveTime(5 * 24 * 60 * 60)
-        );
-    }
-
-    private void initCrashCatch() {
-        Thread.currentThread().setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            @Override
-            public void uncaughtException(@NonNull Thread t, @NonNull Throwable e) {
-                LogCollect.e("Crash", e.getLocalizedMessage());
-                Log.e("Crash", e.getLocalizedMessage());
-            }
-        });
-    }
-
-    private void initStetho() {
-        Stetho.initializeWithDefaults(this);
-    }
 
     private void initLeakCanary() {
+        Log.i(TAG, "LeakCanary init");
         if (BuildConfig.DEBUG && !LeakCanary.isInAnalyzerProcess(this)) {
             LeakCanary.install(this);
         }
@@ -93,6 +59,22 @@ public class MainApplication extends Application {
 
     public static MainApplication getInstance() {
         return mContext;
+    }
+
+    public static MyRoomDatabase initDatabase(Context context) {
+        if (database == null) {
+            synchronized (MyRoomDatabase.class) {
+                if (database == null) {
+                    database = Room.databaseBuilder(
+                            context,
+                            MyRoomDatabase.class, "db_room")
+                            //                .createFromAsset("database/myapp.db")
+                            //                .fallbackToDestructiveMigration()
+                            .build();
+                }
+            }
+        }
+        return database;
     }
 
     public MyRoomDatabase getDatabase() {
