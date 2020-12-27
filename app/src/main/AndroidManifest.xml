@@ -30,6 +30,7 @@
         <activity android:name=".room.activity.RoomTestActivity" />
         <activity android:name=".setup.activity.SetupTestActivity" />
         <activity android:name=".workmanager.activity.WorkManagerTestActivity" />
+        <activity android:name=".whatif.activity.WhatIfTestActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

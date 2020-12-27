@@ -130,4 +130,8 @@ dependencies {
     implementation "androidx.work:work-gcm:$work_version"
     // optional - Test helpers
     androidTestImplementation "androidx.work:work-testing:$work_version"
+
+    def what_if_version = "1.0.9"
+    implementation "com.github.skydoves:whatif:$what_if_version"
+    implementation "com.github.skydoves:whatif-android:$what_if_version"
 }

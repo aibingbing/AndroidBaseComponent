@@ -18,6 +18,7 @@ import com.aibb.android.base.example.network.activity.NetworkServiceTestActivity
 import com.aibb.android.base.example.room.activity.RoomTestActivity
 import com.aibb.android.base.example.setup.activity.SetupTestActivity
 import com.aibb.android.base.example.viewmodel.activity.ViewModelTestActivity
+import com.aibb.android.base.example.whatif.activity.WhatIfTestActivity
 import com.aibb.android.base.example.widget.GridDividerItemDecoration
 import com.aibb.android.base.example.workmanager.activity.WorkManagerTestActivity
 import com.aibb.android.base.log.LogCollect
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         val roomModule = MainModule("Room")
         val setupModule = MainModule("Setup")
         val workManagerModule = MainModule("WorkManager")
+        val whatIfModule = MainModule("WhatIf")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -61,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(roomModule)
         modules.add(setupModule)
         modules.add(workManagerModule)
+        modules.add(whatIfModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -106,6 +109,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 10 -> {
                     val intent = Intent(this, WorkManagerTestActivity::class.java)
+                    startActivity(intent)
+                }
+                11 -> {
+                    val intent = Intent(this, WhatIfTestActivity::class.java)
                     startActivity(intent)
                 }
             }
