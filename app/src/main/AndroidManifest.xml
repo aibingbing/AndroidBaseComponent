@@ -29,6 +29,7 @@
         <activity android:name=".viewmodel.activity.ViewModelTestActivity" />
         <activity android:name=".room.activity.RoomTestActivity" />
         <activity android:name=".setup.activity.SetupTestActivity" />
+        <activity android:name=".workmanager.activity.WorkManagerTestActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

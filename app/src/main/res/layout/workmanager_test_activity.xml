@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/wmHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="WorkManager 示例"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/wmDetailHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:text="WorkManager 是一个 API，使您可以轻松调度那些即使在退出应用或重启设备时仍应运行的可延期异步任务。WorkManager API 是一个针对先前的 Android 后台调度 API（包括 FirebaseJobDispatcher、GcmNetworkManager 和 JobScheduler）的合适的建议替换组件。WorkManager 在新版一致性 API 中整合了其前身的功能，该 API 支持 API 级别 14，同时可保证电池续航时间。
+\n\n功能
+\n\n工作约束
+\n\nf使用工作约束明确定义工作运行的最佳条件。（例如，仅在设备采用 Wi-Fi 网络连接时、当设备处于空闲状态或者有足够的存储空间时运行。
+\n\n强大的调度
+\nWorkManager 允许您使用灵活的调度窗口调度工作，以运行一次性或重复工作。还可以对工作进行标记或命名，以便调度唯一的、可替换的工作以及监控或取消工作组。已调度的工作存储在内部托管的 SQLite 数据库中，由 WorkManager 负责确保该工作持续进行，并在设备重新启动后重新调度。此外，WorkManager 遵循低电耗模式等省电功能和最佳做法，因此您在这方面无需担心。
+\n\n灵活的重试政策
+\n有时工作会失败。WorkManager 提供了灵活的重试政策，包括可配置的指数退避政策。
+\n\n工作链接
+\n对于复杂的相关工作，请使用流畅自然的界面将各个工作任务链接在一起，这样您便可以控制哪些部分依序运行，哪些部分并行运行。对于每项工作任务，您可以定义工作的输入和输出数据。将工作链接在一起时，WorkManager 会自动将输出数据从一个工作任务传递给下一个工作任务。
+\n\n内置线程互操作性
+\nWorkManager 无缝集成 RxJava 和 协程，并可灵活地插入您自己的异步 API。
+\n\n使用 WorkManager 实现可延期、可靠的工作
+\nWorkManager 适用于可延期工作，即不需要立即运行但需要可靠运行的工作，即使用户退出或设备重启也不受影响。例如：
+\n向后端服务发送日志或分析数据
+\n定期将应用数据与服务器同步"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wmHint" />
+
+        <TextView
+            android:id="@+id/workerResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:gravity="left|center_vertical"
+            android:padding="10dp"
+            android:text="WorkRequest Result"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wmDetailHint" />
+
+        <TextView
+            android:id="@+id/oneTimeWorkerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="OneTimeWorkRequest"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/oneTimeAfterDeleteAllWorkerBtn"
+            app:layout_constraintTop_toBottomOf="@+id/workerResult" />
+
+
+        <TextView
+            android:id="@+id/oneTimeAfterDeleteAllWorkerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="OneTimeAfterDeleteAllWorker"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toRightOf="@id/oneTimeWorkerBtn"
+            app:layout_constraintTop_toBottomOf="@+id/workerResult" />
+
+        <TextView
+            android:id="@+id/oneTimeDelayWorkerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="OneTimeDelayWorker"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toRightOf="@id/oneTimeAfterDeleteAllWorkerBtn"
+            app:layout_constraintTop_toBottomOf="@+id/workerResult" />
+
+        <TextView
+            android:id="@+id/observeWorkerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Observe Worker"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toRightOf="@id/oneTimeDelayWorkerBtn"
+            app:layout_constraintTop_toBottomOf="@+id/workerResult" />
+
+        <TextView
+            android:id="@+id/progressWorkerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Progress Worker"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/oneTimeWorkerBtn" />
+
+        <TextView
+            android:id="@+id/periodicWorkerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Periodic Worker"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toRightOf="@+id/progressWorkerBtn"
+            app:layout_constraintTop_toBottomOf="@+id/oneTimeWorkerBtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

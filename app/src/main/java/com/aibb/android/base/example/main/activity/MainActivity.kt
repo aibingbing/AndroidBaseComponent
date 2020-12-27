@@ -19,6 +19,7 @@ import com.aibb.android.base.example.room.activity.RoomTestActivity
 import com.aibb.android.base.example.setup.activity.SetupTestActivity
 import com.aibb.android.base.example.viewmodel.activity.ViewModelTestActivity
 import com.aibb.android.base.example.widget.GridDividerItemDecoration
+import com.aibb.android.base.example.workmanager.activity.WorkManagerTestActivity
 import com.aibb.android.base.log.LogCollect
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         val viewModelModule = MainModule("ViewModel")
         val roomModule = MainModule("Room")
         val setupModule = MainModule("Setup")
+        val workManagerModule = MainModule("WorkManager")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -58,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(viewModelModule)
         modules.add(roomModule)
         modules.add(setupModule)
+        modules.add(workManagerModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -99,6 +102,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 9 -> {
                     val intent = Intent(this, SetupTestActivity::class.java)
+                    startActivity(intent)
+                }
+                10 -> {
+                    val intent = Intent(this, WorkManagerTestActivity::class.java)
                     startActivity(intent)
                 }
             }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.startup.Initializer
 import com.aibb.android.base.log.LogCollect
+import com.blankj.utilcode.utils.CrashUtils
 
 class CrashCatchInitializer : Initializer<Boolean> {
     companion object {
@@ -12,11 +13,12 @@ class CrashCatchInitializer : Initializer<Boolean> {
 
     override fun create(context: Context): Boolean {
         Log.i(TAG, "Crash init")
-        Thread.currentThread().uncaughtExceptionHandler =
-            Thread.UncaughtExceptionHandler { _, e ->
-                LogCollect.e("Crash", e.localizedMessage)
-                Log.e("Crash", e.localizedMessage)
-            }
+        CrashUtils.getInstance().init(context)
+//        Thread.currentThread().uncaughtExceptionHandler =
+//            Thread.UncaughtExceptionHandler { _, e ->
+//                LogCollect.e("Crash", e.localizedMessage)
+//                Log.e("Crash", e.localizedMessage)
+//            }
         return true
     }
 
