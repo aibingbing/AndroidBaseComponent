@@ -1,8 +1,11 @@
 package com.aibb.android.base.example.whatif.activity
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +27,7 @@ class WhatIfTestActivity : AppCompatActivity() {
         testWhatIf()
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun initWebView() {
         val settings: WebSettings = webView.getSettings()
         settings.javaScriptCanOpenWindowsAutomatically = true
@@ -51,11 +55,19 @@ class WhatIfTestActivity : AppCompatActivity() {
             WebView.setWebContentsDebuggingEnabled(true)
         }
 
-//        webView.background.alpha = 0
+        webView.background.alpha = 0
 //        webView.setWebViewClient(mWebViewClient)
         webView.setHorizontalScrollbarOverlay(true)
         webView.scrollBarStyle = WebView.SCROLLBARS_OUTSIDE_OVERLAY
-//        webView.setWebChromeClient(mWebChromeClient)
+        webView.setWebChromeClient(object : WebChromeClient() {
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                super.onProgressChanged(view, newProgress)
+                progressBar.progress = newProgress
+                if (newProgress == 100) {
+                    progressBar.visibility = View.GONE
+                }
+            }
+        })
         webView.loadUrl("https://github.com/skydoves/whatif");
     }
 
