@@ -9,6 +9,7 @@ import androidx.room.Room;
 
 import com.aibb.android.base.example.room.db.MyRoomDatabase;
 import com.aibb.android.base.networkservice.RetrofitFactory;
+import com.qw.soul.permission.SoulPermission;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Locale;
@@ -35,6 +36,7 @@ public class MainApplication extends Application {
         // retrofit, leakcanary 依赖Application，放onCreate初始化
         initRetrofit();
         initLeakCanary();
+        initSoulPermission();
     }
 
     private void initRetrofit() {
@@ -49,6 +51,14 @@ public class MainApplication extends Application {
         if (BuildConfig.DEBUG && !LeakCanary.isInAnalyzerProcess(this)) {
             LeakCanary.install(this);
         }
+    }
+
+    private void initSoulPermission() {
+        SoulPermission.init(this);
+        //设置跳过老的权限系统（老的系统默认权限直接授予）
+        SoulPermission.skipOldRom(true);
+        //设置debug模式(看日志打印)
+        SoulPermission.setDebug(BuildConfig.DEBUG);
     }
 
     @Override
