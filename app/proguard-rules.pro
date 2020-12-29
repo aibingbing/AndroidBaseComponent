@@ -41,3 +41,19 @@
 #okio
 -dontwarn okio.**
 -keep class okio.**{*;}
+
+-dontwarn dalvik.**
+-dontwarn com.tencent.smtt.**
+
+-keep class com.tencent.smtt.** {
+    *;
+}
+
+-keep class com.tencent.tbs.** {
+    *;
+}
+
+#CacheWebview
+-dontwarn ren.yale.android.cachewebviewlib.**
+-keep class ren.yale.android.cachewebviewlib.**{*;}
+

@@ -21,8 +21,7 @@ class H5CommonLoadActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "H5CommonLoadActivity"
-        const val URL =
-            "http://carlife-test.zhidaohulian.com/flow-purchase/?spuId=2209&sn=ZD821C1950L01600&iccid=89860319472089765968&userId=1356748089779"
+        const val URL = "http://www.baidu.com"
     }
 
     private var loadDurationTimeMillis: Long = 0

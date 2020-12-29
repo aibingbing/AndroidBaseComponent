@@ -29,8 +29,7 @@ class H5TencentX5LoadActivity : AppCompatActivity() {
         const val TAG = "H5TencentX5LoadActivity"
 
         //const val URL = "http://debugtbs.qq.com"
-        const val URL =
-            "http://carlife-test.zhidaohulian.com/flow-purchase/?spuId=2209&sn=ZD821C1950L01600&iccid=89860319472089765968&userId=1356748089779"
+        const val URL = "http://www.baidu.com"
     }
 
     private var loadDurationTimeMillis: Long = 0
