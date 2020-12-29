@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import butterknife.ButterKnife
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
+import com.aibb.android.base.example.h5.activity.H5LoadingTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
 import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
 import com.aibb.android.base.example.lifecycle.activity.LifecycleTestActivity
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         val workManagerModule = MainModule("WorkManager")
         val whatIfModule = MainModule("WhatIf")
         val permissionRequestModule = MainModule("Permission Request")
+        val h5LoadModule = MainModule("H5 Load")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(workManagerModule)
         modules.add(whatIfModule)
         modules.add(permissionRequestModule)
+        modules.add(h5LoadModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -108,6 +111,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 12 -> {
                     startActivity(Intent(this, PermissionRequestTestActivity::class.java))
+                }
+                13 -> {
+                    startActivity(Intent(this, H5LoadingTestActivity::class.java))
                 }
             }
         }

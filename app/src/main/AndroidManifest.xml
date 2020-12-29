@@ -44,13 +44,26 @@
         <activity android:name=".workmanager.activity.WorkManagerTestActivity" />
         <activity android:name=".whatif.activity.WhatIfTestActivity" />
         <activity android:name=".permission.activity.PermissionRequestTestActivity" />
+        <activity android:name=".h5.activity.H5LoadingTestActivity" />
+        <activity android:name=".h5.activity.H5CommonLoadActivity" />
+        <activity
+            android:name=".h5.activity.H5TencentX5LoadActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+
+        <service
+            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+            android:label="dexopt"
+            android:process=":dexopt" >
+        </service>
 
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
             tools:node="merge">
-            <meta-data  android:name="com.aibb.android.base.example.setup.Initializer.RoomInitializer"
+            <meta-data
+                android:name="com.aibb.android.base.example.setup.Initializer.RoomInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>
