@@ -155,4 +155,7 @@ dependencies {
     implementation 'androidx.ui:ui-tooling:0.1.0-dev02'
     implementation 'androidx.ui:ui-layout:0.1.0-dev02'
     implementation 'androidx.ui:ui-material:0.1.0-dev02'
+
+    // BoostMultiDex
+    implementation 'com.bytedance.boost_multidex:boost_multidex:1.0.1'
 }

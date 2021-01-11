@@ -30,7 +30,8 @@ class H5CommonLoadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.h5_common_load_activity)
         initWebView()
-        loadUrl(URL)
+        val url = intent?.getStringExtra("url") ?: URL
+        loadUrl(url)
     }
 
     private fun initWebView() {

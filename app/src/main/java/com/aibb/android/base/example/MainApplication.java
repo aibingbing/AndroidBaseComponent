@@ -9,6 +9,7 @@ import androidx.room.Room;
 
 import com.aibb.android.base.example.room.db.MyRoomDatabase;
 import com.aibb.android.base.networkservice.RetrofitFactory;
+import com.bytedance.boost_multidex.BoostMultiDex;
 import com.qw.soul.permission.SoulPermission;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
@@ -115,7 +116,8 @@ public class MainApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        MultiDex.install(this);
+        BoostMultiDex.install(base);
+        //MultiDex.install(this);
     }
 
     public static MainApplication getInstance() {

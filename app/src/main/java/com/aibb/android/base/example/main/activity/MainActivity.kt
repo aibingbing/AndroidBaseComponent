@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import butterknife.ButterKnife
 import com.aibb.android.base.example.R
+import com.aibb.android.base.example.boostmultidex.activity.BoostMultiDexTestActivity
 import com.aibb.android.base.example.compose.activity.ComposeTestActivity
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
 import com.aibb.android.base.example.h5.activity.H5LoadingTestActivity
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         val permissionRequestModule = MainModule("Permission Request")
         val h5LoadModule = MainModule("H5 Load")
         val composeModule = MainModule("Jetpack Compose")
+        val boostMultiDexModule = MainModule("BoostMultiDex")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -73,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(permissionRequestModule)
         modules.add(h5LoadModule)
         modules.add(composeModule)
+        modules.add(boostMultiDexModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -120,6 +123,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 14 -> {
                     startActivity(Intent(this, ComposeTestActivity::class.java))
+                }
+                15 -> {
+                    startActivity(Intent(this, BoostMultiDexTestActivity::class.java))
                 }
             }
         }

@@ -51,6 +51,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".compose.activity.ComposeTestActivity" />
+        <activity android:name=".boostmultidex.activity.BoostMultiDexTestActivity" />
 
         <service
             android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"

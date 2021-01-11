@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/boostMultiDexBtn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="抖音BoostMultiDex优化实践：Android低版本上APP首次启动时间减少80%"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/boostMultiDexBtn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/boostMultiDexBtn1"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="抖音BoostMultiDex优化实践：Android低版本上APP首次启动时间减少80%（二）"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/boostMultiDexBtn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/boostMultiDexBtn2"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="开源 | BoostMultiDex：挽救 Android Dalvik 机型APP升级安装体验"
+        android:textColor="@color/colorPrimary" />
+
+
+</RelativeLayout>
