@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.aibb.android.base.demo"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -150,4 +150,9 @@ dependencies {
     // Tencent X5
     api 'com.tencent.tbs.tbssdk:sdk:43939'
     implementation 'ren.yale.android:cachewebviewlib:2.1.8'
+
+    // Compose, min sdk 21
+    implementation 'androidx.ui:ui-tooling:0.1.0-dev02'
+    implementation 'androidx.ui:ui-layout:0.1.0-dev02'
+    implementation 'androidx.ui:ui-material:0.1.0-dev02'
 }

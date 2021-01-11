@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import butterknife.ButterKnife
 import com.aibb.android.base.example.R
+import com.aibb.android.base.example.compose.activity.ComposeTestActivity
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
 import com.aibb.android.base.example.h5.activity.H5LoadingTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         val whatIfModule = MainModule("WhatIf")
         val permissionRequestModule = MainModule("Permission Request")
         val h5LoadModule = MainModule("H5 Load")
+        val composeModule = MainModule("Jetpack Compose")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -70,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(whatIfModule)
         modules.add(permissionRequestModule)
         modules.add(h5LoadModule)
+        modules.add(composeModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -114,6 +117,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 13 -> {
                     startActivity(Intent(this, H5LoadingTestActivity::class.java))
+                }
+                14 -> {
+                    startActivity(Intent(this, ComposeTestActivity::class.java))
                 }
             }
         }

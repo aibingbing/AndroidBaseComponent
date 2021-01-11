@@ -50,6 +50,7 @@
             android:name=".h5.activity.H5TencentX5LoadActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".compose.activity.ComposeTestActivity" />
 
         <service
             android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
