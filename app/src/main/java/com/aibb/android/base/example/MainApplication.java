@@ -4,25 +4,23 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import androidx.multidex.MultiDex;
 import androidx.room.Room;
 
 import com.aibb.android.base.example.room.db.MyRoomDatabase;
 import com.aibb.android.base.networkservice.RetrofitFactory;
 import com.bytedance.boost_multidex.BoostMultiDex;
+import com.didichuxing.doraemonkit.DoraemonKit;
 import com.qw.soul.permission.SoulPermission;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Locale;
 
 import dagger.hilt.android.HiltAndroidApp;
 import ren.yale.android.cachewebviewlib.CacheType;
-import ren.yale.android.cachewebviewlib.ResourceInterceptor;
 import ren.yale.android.cachewebviewlib.WebViewCacheInterceptor;
 import ren.yale.android.cachewebviewlib.WebViewCacheInterceptorInst;
 
@@ -49,6 +47,7 @@ public class MainApplication extends Application {
         initSoulPermission();
         initWebViewCacheIntercept();
         initTencentX5();
+        initDoKit();
     }
 
     private void initWebViewCacheIntercept() {
@@ -111,6 +110,10 @@ public class MainApplication extends Application {
         SoulPermission.skipOldRom(true);
         //设置debug模式(看日志打印)
         SoulPermission.setDebug(BuildConfig.DEBUG);
+    }
+
+    private void initDoKit() {
+        DoraemonKit.install(this);
     }
 
     @Override

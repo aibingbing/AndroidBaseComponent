@@ -10,7 +10,7 @@ import com.aibb.android.base.example.network.presenter.NetworkServiceTestPresent
 import com.aibb.android.base.example.network.view.NetworkServiceTestView
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
-import com.blankj.utilcode.utils.ToastUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.kingja.loadsir.callback.HintCallback
 import com.kingja.loadsir.callback.ProgressCallback
 import com.kingja.loadsir.core.LoadService
@@ -89,6 +89,6 @@ class NetworkServiceTestActivity : MyBaseMvpActivity(),
         mReposList.clear()
         mReposList.addAll(data)
         mAdapter.notifyDataSetChanged()
-        ToastUtils.showShortToast(this, "Load JakeWharton's repos success")
+        ToastUtils.showShort("Load JakeWharton's repos success")
     }
 }

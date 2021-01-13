@@ -17,7 +17,7 @@ import com.aibb.android.base.example.workmanager.worker.DeleteAllWorker
 import com.aibb.android.base.example.workmanager.worker.OneTimeWorker
 import com.aibb.android.base.example.workmanager.worker.PeriodicWorker
 import com.aibb.android.base.example.workmanager.worker.ProgressWorker
-import com.blankj.utilcode.utils.ToastUtils
+import com.blankj.utilcode.util.ToastUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
@@ -120,7 +120,7 @@ class WorkManagerViewModel : ViewModel() {
         WorkManager.getInstance(context).getWorkInfoByIdLiveData(worker.id)
             .observe(context as AppCompatActivity) { workInfo ->
                 if (workInfo?.state == WorkInfo.State.SUCCEEDED) {
-                    ToastUtils.showShortToast(context, "observeWork execute success")
+                    ToastUtils.showShort("observeWork execute success")
                 }
             }
         WorkManager.getInstance(context).enqueue(worker)

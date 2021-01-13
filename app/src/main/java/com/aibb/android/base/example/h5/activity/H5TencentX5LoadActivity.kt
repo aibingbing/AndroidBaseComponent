@@ -13,7 +13,7 @@ import com.aibb.android.base.example.BuildConfig
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.h5.cache.WebResourceRequestAdapter
 import com.aibb.android.base.example.h5.cache.WebResourceResponseAdapter
-import com.blankj.utilcode.utils.NetworkUtils
+import com.blankj.utilcode.util.NetworkUtils
 import com.tencent.smtt.export.external.interfaces.ConsoleMessage
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest
@@ -68,7 +68,7 @@ class H5TencentX5LoadActivity : AppCompatActivity() {
         val appCachePath: String = applicationContext.cacheDir.absolutePath
         settings.databaseEnabled = true
         settings.setAppCachePath(appCachePath)
-        if (NetworkUtils.isConnected(this)) {
+        if (NetworkUtils.isConnected()) {
             settings.cacheMode = WebSettings.LOAD_DEFAULT
         } else {
             settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK

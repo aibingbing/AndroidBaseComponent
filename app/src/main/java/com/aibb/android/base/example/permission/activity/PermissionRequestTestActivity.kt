@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.aibb.android.base.example.R
-import com.blankj.utilcode.utils.ToastUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.qw.soul.permission.SoulPermission
 import com.qw.soul.permission.bean.Permission
 import com.qw.soul.permission.bean.Special
@@ -92,7 +92,7 @@ class PermissionRequestTestActivity : AppCompatActivity() {
 
     private fun requestPermissionByRxPermission() {
         Log.i(TAG, "requestPermissionByRxPermission")
-        ToastUtils.showShortToast(this, "需要RxJava3, 此项目是RxJava2, 暂不测试")
+        ToastUtils.showShort("需要RxJava3, 此项目是RxJava2, 暂不测试")
         // needs RxJava3
         val rxPermission = RxPermissions(this)
         /*
@@ -147,7 +147,7 @@ class PermissionRequestTestActivity : AppCompatActivity() {
     //    @NeedsPermission(Manifest.permission.ACCESS_FINE_LOCATION)
     private fun requestPermissionByPermissionsDispatcher() {
         Log.i(TAG, "requestPermissionByPermissionsDispatcher")
-        ToastUtils.showLongToast(this, "PermissionDispatcher 的RuntimePermissions注解加了后打包报错, 不太好用")
+        ToastUtils.showLong("PermissionDispatcher 的RuntimePermissions注解加了后打包报错, 不太好用")
 //        ToastUtils.showLongToast(this, "请求定位权限")
     }
 
@@ -172,27 +172,23 @@ class PermissionRequestTestActivity : AppCompatActivity() {
             Manifest.permission.ACCESS_FINE_LOCATION,  //if you want do noting or no need all the callbacks you may use SimplePermissionAdapter instead
             object : CheckRequestPermissionListener {
                 override fun onPermissionOk(permission: Permission) {
-                    ToastUtils.showLongToast(
-                        this@PermissionRequestTestActivity,
+                    ToastUtils.showLong(
                         "${permission.toString()} is ok , you can do your operations"
                     )
                 }
 
                 override fun onPermissionDenied(permission: Permission) {
                     if (permission.shouldRationale()) {
-                        ToastUtils.showLongToast(
-                            this@PermissionRequestTestActivity,
+                        ToastUtils.showLong(
                             "${permission.toString()} you should show a explain for user then retry "
                         )
                     } else {
-                        ToastUtils.showLongToast(
-                            this@PermissionRequestTestActivity,
+                        ToastUtils.showLong(
                             "${permission.toString()} is refused you can not do next things"
                         )
                         SoulPermission.getInstance()
                             .goApplicationSettings { //if you need to know when back from app detail
-                                ToastUtils.showLongToast(
-                                    this@PermissionRequestTestActivity,
+                                ToastUtils.showLong(
                                     "back from go appDetail"
                                 )
                             }
@@ -226,8 +222,7 @@ class PermissionRequestTestActivity : AppCompatActivity() {
         val checkResult = SoulPermission.getInstance()
             .checkSinglePermission(Manifest.permission.ACCESS_FINE_LOCATION)
         Log.i(TAG, "Check Manifest.permission.ACCESS_FINE_LOCATION Result: $checkResult")
-        ToastUtils.showLongToast(
-            this@PermissionRequestTestActivity,
+        ToastUtils.showLong(
             "Check Manifest.permission.ACCESS_FINE_LOCATION Result: $checkResult"
         )
 
@@ -246,8 +241,7 @@ class PermissionRequestTestActivity : AppCompatActivity() {
             TAG,
             "Check Special Permission Result: [NOTIFICATION: $checkSpecialResultNotification], UNKNOWN_APP_SOURCES= $checkSpecialResultUnKnownAppSources, WRITE_SETTINGS: $checkSpecialResultWriteSettings"
         )
-        ToastUtils.showLongToast(
-            this@PermissionRequestTestActivity,
+        ToastUtils.showLong(
             "Check Special Permission Result: [NOTIFICATION: $checkSpecialResultNotification], UNKNOWN_APP_SOURCES= $checkSpecialResultUnKnownAppSources, WRITE_SETTINGS: $checkSpecialResultWriteSettings"
         )
 

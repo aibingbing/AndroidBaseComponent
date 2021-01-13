@@ -10,12 +10,12 @@ import butterknife.ButterKnife
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.base.MyBaseLazyMvpFragment
 import com.aibb.android.base.example.mvp.adapter.RecyclerViewAdapter
+import com.aibb.android.base.example.network.pojo.GithubRepos
 import com.aibb.android.base.example.network.presenter.NetworkServiceTestPresenter
 import com.aibb.android.base.example.network.view.NetworkServiceTestView
-import com.aibb.android.base.example.network.pojo.GithubRepos
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
-import com.blankj.utilcode.utils.ToastUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.kingja.loadsir.callback.HintCallback
 import com.kingja.loadsir.callback.ProgressCallback
 import com.kingja.loadsir.core.LoadService
@@ -94,7 +94,7 @@ open class LazyMvpFragment1 : MyBaseLazyMvpFragment(),
         mReposList.clear()
         mReposList.addAll(data)
         mAdapter.notifyDataSetChanged()
-        ToastUtils.showShortToast(context, "Load JakeWharton's repos success")
+        ToastUtils.showShort("Load JakeWharton's repos success")
     }
 
     override fun lazyInit() {

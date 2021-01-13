@@ -91,6 +91,9 @@ protobuf {
     }
 }
 
+configurations.all {
+    resolutionStrategy.force 'com.blankj:utilcode:1.30.5'
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -181,4 +184,9 @@ dependencies {
 
     // BoostMultiDex
     implementation 'com.bytedance.boost_multidex:boost_multidex:1.0.1'
+    // blankj
+    implementation 'com.blankj:utilcodex:1.30.5'
+    // Didi doraemonkit
+    debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
+    releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'
 }

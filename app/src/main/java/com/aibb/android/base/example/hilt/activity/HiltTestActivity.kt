@@ -10,7 +10,7 @@ import com.aibb.android.base.example.hilt.view.HiltView
 import com.aibb.android.base.example.widget.GridDividerItemDecoration
 import com.aibb.android.base.mvp.annotation.MvpPresenterInject
 import com.aibb.android.base.mvp.annotation.MvpPresenterVariable
-import com.blankj.utilcode.utils.ToastUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.kingja.loadsir.callback.HintCallback
 import com.kingja.loadsir.callback.ProgressCallback
 import com.kingja.loadsir.core.LoadService
@@ -49,7 +49,7 @@ class HiltTestActivity : MyBaseMvpActivity(), HiltView {
         reposList.clear()
         reposList.addAll(data)
         adapter.setNewData(reposList)
-        ToastUtils.showShortToast(this, "Load Square's repos success")
+        ToastUtils.showShort("Load Square's repos success")
     }
 
     override fun onLoadDataFailed() {

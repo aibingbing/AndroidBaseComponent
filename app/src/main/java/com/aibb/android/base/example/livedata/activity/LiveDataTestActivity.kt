@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.livedata.pojo.User
 import com.aibb.android.base.example.livedata.viewmodel.UserViewModel
-import com.blankj.utilcode.utils.ToastUtils
+import com.blankj.utilcode.util.ToastUtils
 import kotlinx.android.synthetic.main.livedata_test_activity.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -49,7 +49,7 @@ class LiveDataTestActivity : AppCompatActivity() {
         }
         viewModel.users.observe(this, usersObserver)
         val toastObserver = Observer<String> {
-            ToastUtils.showLongToast(this, it)
+            ToastUtils.showLong(it)
         }
         viewModel.toastMsg.observe(this, toastObserver)
         val transformationUserObserver = Observer<List<User>> {

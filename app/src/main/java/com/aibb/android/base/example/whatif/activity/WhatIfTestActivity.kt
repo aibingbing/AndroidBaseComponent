@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.aibb.android.base.example.BuildConfig
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.network.pojo.GithubRepos
-import com.blankj.utilcode.utils.NetworkUtils
+import com.blankj.utilcode.util.NetworkUtils
 import com.skydoves.whatif.*
 import com.skydoves.whatif_android.whatIfHasExtras
 import com.skydoves.whatif_android.whatIfHasSerializableExtra
@@ -43,7 +43,7 @@ class WhatIfTestActivity : AppCompatActivity() {
         val appCachePath: String = applicationContext.cacheDir.absolutePath
         settings.databaseEnabled = true
         settings.setAppCachePath(appCachePath)
-        if (NetworkUtils.isConnected(this)) {
+        if (NetworkUtils.isConnected()) {
             settings.cacheMode = WebSettings.LOAD_DEFAULT
         } else {
             settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK

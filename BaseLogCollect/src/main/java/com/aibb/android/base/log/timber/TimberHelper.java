@@ -6,7 +6,6 @@ import android.os.Environment;
 import com.aibb.android.base.log.LogCollect;
 import com.aibb.android.base.log.utils.Utils;
 import com.aibb.android.base.log.xlog.XLogHelper;
-import com.blankj.utilcode.utils.FileUtils;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -138,7 +137,7 @@ public final class TimberHelper {
             LogCollect.e(e.getMessage());
         } finally {
             if (dir != null) {
-                FileUtils.deleteDir(dir);
+                Utils.deleteDir(dir);
             }
         }
         return false;

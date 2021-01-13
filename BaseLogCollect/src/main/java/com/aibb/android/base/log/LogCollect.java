@@ -4,11 +4,6 @@ import android.content.Context;
 
 import com.aibb.android.base.log.timber.TimberHelper;
 import com.aibb.android.base.log.utils.Utils;
-import com.blankj.utilcode.utils.AppUtils;
-import com.blankj.utilcode.utils.FileUtils;
-import com.blankj.utilcode.utils.SDCardUtils;
-import com.blankj.utilcode.utils.StringUtils;
-import com.blankj.utilcode.utils.ZipUtils;
 
 import java.io.File;
 import java.util.Arrays;
@@ -142,23 +137,23 @@ public final class LogCollect {
                     messageHandler,
                     "[Info]开始上传日志任务"
                             + "\n[Info]App信息："
-                            + AppUtils.getAppVersionName(context)
+                            + Utils.getAppVersionName(context)
                             + ", "
-                            + AppUtils.getAppVersionCode(context)
+                            + Utils.getAppVersionCode(context)
                             + "\n[Info]设备信息："
                             + Utils.getDeviceInfo()
                             + "\n[Info]外部存储信息：\n"
-                            + SDCardUtils.getSDCardInfo()
+                            + Utils.getSDCardInfo()
                             + "\npermission:"
                             + TimberHelper.hasExternalStoragePermission(context)
             );
             //缓冲日志写入文件
             flushLog(true);
-            if (StringUtils.isEmpty(taskId)) {
+            if (Utils.isEmpty(taskId)) {
                 logAndSendMsg(taskId, messageHandler, "[Error]任务失败，taskId为空");
                 return;
             }
-            if (StringUtils.isEmpty(zipFileName)) {
+            if (Utils.isEmpty(zipFileName)) {
                 logAndSendMsg(taskId, messageHandler, "[Error]任务失败，zipFileName为空");
                 return;
             }
@@ -173,12 +168,12 @@ public final class LogCollect {
             }
             File zipFileDir = new File(logUploadDir.getParent(), "zip");
             final File zipFile = new File(zipFileDir, zipFileName + ".zip");
-            boolean createZipFile = FileUtils.createFileByDeleteOldFile(zipFile);
+            boolean createZipFile = Utils.createFileByDeleteOldFile(zipFile);
             if (!createZipFile) {
                 logAndSendMsg(taskId, messageHandler, "[Error]任务失败，创建zip文件失败");
                 return;
             }
-            boolean zipResult = ZipUtils.zipFiles(Arrays.asList(logUploadDir.listFiles()), zipFile);
+            boolean zipResult = Utils.zipFiles(Arrays.asList(logUploadDir.listFiles()), zipFile);
             if (!zipResult) {
                 logAndSendMsg(taskId, messageHandler, "[Error]任务失败，压缩日志文件到zip文件失败");
                 return;
@@ -186,7 +181,7 @@ public final class LogCollect {
             fileHandler.uploadLogFile(zipFile.getAbsolutePath(), new UploadCompletionHandler() {
                 @Override
                 public void complete(String fileId) {
-                    if (StringUtils.isEmpty(fileId)) {
+                    if (Utils.isEmpty(fileId)) {
                         logAndSendMsg(taskId, messageHandler, "[Error]任务失败，上传日志过程中获取fileId失败");
                     } else {
                         logAndSendMsg(

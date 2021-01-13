@@ -13,7 +13,7 @@ import android.webkit.*
 import androidx.appcompat.app.AppCompatActivity
 import com.aibb.android.base.example.BuildConfig
 import com.aibb.android.base.example.R
-import com.blankj.utilcode.utils.NetworkUtils
+import com.blankj.utilcode.util.NetworkUtils
 import kotlinx.android.synthetic.main.h5_common_load_activity.*
 
 
@@ -49,7 +49,7 @@ class H5CommonLoadActivity : AppCompatActivity() {
         val appCachePath: String = applicationContext.cacheDir.absolutePath
         settings.databaseEnabled = true
         settings.setAppCachePath(appCachePath)
-        if (NetworkUtils.isConnected(this)) {
+        if (NetworkUtils.isConnected()) {
             settings.cacheMode = WebSettings.LOAD_DEFAULT
         } else {
             settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
