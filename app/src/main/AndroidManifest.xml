@@ -54,6 +54,9 @@
         <activity android:name=".boostmultidex.activity.BoostMultiDexTestActivity" />
         <activity android:name=".fragmentcontainerview.activity.FragmentContainerViewTestActivity" />
         <activity android:name=".dokit.activity.DidiDoKitTestActivity" />
+        <activity android:name=".androidgodeye.activity.AndroidGodEyeTestActivity" />
+        <activity android:name=".lens.activity.IQiyiLensTestActivity" />
+        <activity android:name=".matrix.activity.TencentMatrixTestActivity" />
 
         <service
             android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"

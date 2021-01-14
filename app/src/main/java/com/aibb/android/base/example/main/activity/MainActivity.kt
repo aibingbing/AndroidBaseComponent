@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import butterknife.ButterKnife
 import com.aibb.android.base.example.R
+import com.aibb.android.base.example.androidgodeye.activity.AndroidGodEyeTestActivity
 import com.aibb.android.base.example.boostmultidex.activity.BoostMultiDexTestActivity
 import com.aibb.android.base.example.compose.activity.ComposeTestActivity
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
@@ -14,10 +15,12 @@ import com.aibb.android.base.example.fragmentcontainerview.activity.FragmentCont
 import com.aibb.android.base.example.h5.activity.H5LoadingTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
 import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
+import com.aibb.android.base.example.lens.activity.IQiyiLensTestActivity
 import com.aibb.android.base.example.lifecycle.activity.LifecycleTestActivity
 import com.aibb.android.base.example.livedata.activity.LiveDataTestActivity
 import com.aibb.android.base.example.main.adapter.MainAdapter
 import com.aibb.android.base.example.main.pojo.MainModule
+import com.aibb.android.base.example.matrix.activity.TencentMatrixTestActivity
 import com.aibb.android.base.example.mvp.activity.MvpMainActivity
 import com.aibb.android.base.example.network.activity.NetworkServiceTestActivity
 import com.aibb.android.base.example.permission.activity.PermissionRequestTestActivity
@@ -64,6 +67,9 @@ class MainActivity : AppCompatActivity() {
         val boostMultiDexModule = MainModule("BoostMultiDex")
         val fragmentContainerViewModule = MainModule("FragmentContainerView")
         val didiDoKitModule = MainModule("Didi DoKit")
+        val androidGodEyeModule = MainModule("AndroidGodEye")
+        val iQiyiLensModule = MainModule("iQiyi Lens")
+        val tencentMatrixModule = MainModule("Tencent Matrix")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -82,6 +88,9 @@ class MainActivity : AppCompatActivity() {
         modules.add(boostMultiDexModule)
         modules.add(fragmentContainerViewModule)
         modules.add(didiDoKitModule)
+        modules.add(androidGodEyeModule)
+        modules.add(iQiyiLensModule)
+        modules.add(tencentMatrixModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -138,6 +147,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 17 -> {
                     startActivity(Intent(this, DidiDoKitTestActivity::class.java))
+                }
+                18 -> {
+                    startActivity(Intent(this, AndroidGodEyeTestActivity::class.java))
+                }
+                19 -> {
+                    startActivity(Intent(this, IQiyiLensTestActivity::class.java))
+                }
+                20 -> {
+                    startActivity(Intent(this, TencentMatrixTestActivity::class.java))
                 }
             }
         }
