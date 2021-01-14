@@ -24,6 +24,7 @@ import com.aibb.android.base.example.matrix.activity.TencentMatrixTestActivity
 import com.aibb.android.base.example.mvp.activity.MvpMainActivity
 import com.aibb.android.base.example.network.activity.NetworkServiceTestActivity
 import com.aibb.android.base.example.permission.activity.PermissionRequestTestActivity
+import com.aibb.android.base.example.qmui.activity.QMUIAndroidTestActivity
 import com.aibb.android.base.example.room.activity.RoomTestActivity
 import com.aibb.android.base.example.setup.activity.SetupTestActivity
 import com.aibb.android.base.example.viewmodel.activity.ViewModelTestActivity
@@ -70,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         val androidGodEyeModule = MainModule("AndroidGodEye")
         val iQiyiLensModule = MainModule("iQiyi Lens")
         val tencentMatrixModule = MainModule("Tencent Matrix")
+        val qmUIModule = MainModule("QMUI Android")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -91,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(androidGodEyeModule)
         modules.add(iQiyiLensModule)
         modules.add(tencentMatrixModule)
+        modules.add(qmUIModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -156,6 +159,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 20 -> {
                     startActivity(Intent(this, TencentMatrixTestActivity::class.java))
+                }
+                21 -> {
+                    startActivity(Intent(this, QMUIAndroidTestActivity::class.java))
                 }
             }
         }
