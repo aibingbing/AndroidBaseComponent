@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import butterknife.ButterKnife
 import com.aibb.android.base.example.R
 import com.aibb.android.base.example.androidgodeye.activity.AndroidGodEyeTestActivity
+import com.aibb.android.base.example.booster.activity.DidiBoosterTestActivity
 import com.aibb.android.base.example.boostmultidex.activity.BoostMultiDexTestActivity
 import com.aibb.android.base.example.compose.activity.ComposeTestActivity
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
@@ -72,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         val iQiyiLensModule = MainModule("iQiyi Lens")
         val tencentMatrixModule = MainModule("Tencent Matrix")
         val qmUIModule = MainModule("QMUI Android")
+        val didiBoosterModule = MainModule("Didi Booster")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -94,6 +96,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(iQiyiLensModule)
         modules.add(tencentMatrixModule)
         modules.add(qmUIModule)
+        modules.add(didiBoosterModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -162,6 +165,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 21 -> {
                     startActivity(Intent(this, QMUIAndroidTestActivity::class.java))
+                }
+                22 -> {
+                    startActivity(Intent(this, DidiBoosterTestActivity::class.java))
                 }
             }
         }

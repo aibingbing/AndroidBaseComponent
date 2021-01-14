@@ -5,6 +5,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'com.google.protobuf'
 apply plugin: 'com.didi.dokit'
+apply plugin: 'com.didiglobal.booster'
 
 android {
     compileSdkVersion 29
