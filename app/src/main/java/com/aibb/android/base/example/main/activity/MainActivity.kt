@@ -9,6 +9,7 @@ import com.aibb.android.base.example.R
 import com.aibb.android.base.example.boostmultidex.activity.BoostMultiDexTestActivity
 import com.aibb.android.base.example.compose.activity.ComposeTestActivity
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
+import com.aibb.android.base.example.dokit.activity.DidiDoKitTestActivity
 import com.aibb.android.base.example.fragmentcontainerview.activity.FragmentContainerViewTestActivity
 import com.aibb.android.base.example.h5.activity.H5LoadingTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         val composeModule = MainModule("Jetpack Compose")
         val boostMultiDexModule = MainModule("BoostMultiDex")
         val fragmentContainerViewModule = MainModule("FragmentContainerView")
+        val didiDoKitModule = MainModule("Didi DoKit")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -79,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(composeModule)
         modules.add(boostMultiDexModule)
         modules.add(fragmentContainerViewModule)
+        modules.add(didiDoKitModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -132,6 +135,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 16 -> {
                     startActivity(Intent(this, FragmentContainerViewTestActivity::class.java))
+                }
+                17 -> {
+                    startActivity(Intent(this, DidiDoKitTestActivity::class.java))
                 }
             }
         }

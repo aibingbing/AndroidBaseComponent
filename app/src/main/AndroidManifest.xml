@@ -53,6 +53,7 @@
         <activity android:name=".compose.activity.ComposeTestActivity" />
         <activity android:name=".boostmultidex.activity.BoostMultiDexTestActivity" />
         <activity android:name=".fragmentcontainerview.activity.FragmentContainerViewTestActivity" />
+        <activity android:name=".dokit.activity.DidiDoKitTestActivity" />
 
         <service
             android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
