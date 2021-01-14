@@ -52,6 +52,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".compose.activity.ComposeTestActivity" />
         <activity android:name=".boostmultidex.activity.BoostMultiDexTestActivity" />
+        <activity android:name=".fragmentcontainerview.activity.FragmentContainerViewTestActivity" />
 
         <service
             android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"

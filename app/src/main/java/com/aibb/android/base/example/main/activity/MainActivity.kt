@@ -9,6 +9,7 @@ import com.aibb.android.base.example.R
 import com.aibb.android.base.example.boostmultidex.activity.BoostMultiDexTestActivity
 import com.aibb.android.base.example.compose.activity.ComposeTestActivity
 import com.aibb.android.base.example.datastore.activity.DataStoreTestActivity
+import com.aibb.android.base.example.fragmentcontainerview.activity.FragmentContainerViewTestActivity
 import com.aibb.android.base.example.h5.activity.H5LoadingTestActivity
 import com.aibb.android.base.example.hilt.activity.HiltTestActivity
 import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         val h5LoadModule = MainModule("H5 Load")
         val composeModule = MainModule("Jetpack Compose")
         val boostMultiDexModule = MainModule("BoostMultiDex")
+        val fragmentContainerViewModule = MainModule("FragmentContainerView")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         modules.add(h5LoadModule)
         modules.add(composeModule)
         modules.add(boostMultiDexModule)
+        modules.add(fragmentContainerViewModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -126,6 +129,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 15 -> {
                     startActivity(Intent(this, BoostMultiDexTestActivity::class.java))
+                }
+                16 -> {
+                    startActivity(Intent(this, FragmentContainerViewTestActivity::class.java))
                 }
             }
         }
