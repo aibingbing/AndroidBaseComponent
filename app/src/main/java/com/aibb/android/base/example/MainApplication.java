@@ -16,6 +16,7 @@ import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -113,7 +114,7 @@ public class MainApplication extends Application {
     }
 
     private void initDoKit() {
-        DoraemonKit.install(this);
+        DoraemonKit.install(this, Collections.emptyList(), "698b23b415abdeaa1b16ff1abfba4364");
     }
 
     @Override
