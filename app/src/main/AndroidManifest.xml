@@ -59,6 +59,7 @@
         <activity android:name=".matrix.activity.TencentMatrixTestActivity" />
         <activity android:name=".qmui.activity.QMUIAndroidTestActivity" />
         <activity android:name=".booster.activity.DidiBoosterTestActivity" />
+        <activity android:name=".litho.activity.LithoTestActivity" />
 
         <service
             android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"

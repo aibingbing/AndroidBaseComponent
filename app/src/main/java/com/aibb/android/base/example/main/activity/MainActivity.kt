@@ -18,6 +18,7 @@ import com.aibb.android.base.example.hilt.activity.HiltTestActivity
 import com.aibb.android.base.example.lazy.activity.MvpViewPagerActivity
 import com.aibb.android.base.example.lens.activity.IQiyiLensTestActivity
 import com.aibb.android.base.example.lifecycle.activity.LifecycleTestActivity
+import com.aibb.android.base.example.litho.activity.LithoTestActivity
 import com.aibb.android.base.example.livedata.activity.LiveDataTestActivity
 import com.aibb.android.base.example.main.adapter.MainAdapter
 import com.aibb.android.base.example.main.pojo.MainModule
@@ -72,8 +73,9 @@ class MainActivity : AppCompatActivity() {
         val androidGodEyeModule = MainModule("AndroidGodEye")
         val iQiyiLensModule = MainModule("iQiyi Lens")
         val tencentMatrixModule = MainModule("Tencent Matrix")
-        val qmUIModule = MainModule("QMUI Android")
         val didiBoosterModule = MainModule("Didi Booster")
+        val qmUIModule = MainModule("QMUI Android")
+        val facebookLithoModule = MainModule("Facebook Litho")
         modules.add(mvpModule)
         modules.add(lazyModule)
         modules.add(networkModule)
@@ -95,8 +97,9 @@ class MainActivity : AppCompatActivity() {
         modules.add(androidGodEyeModule)
         modules.add(iQiyiLensModule)
         modules.add(tencentMatrixModule)
-        modules.add(qmUIModule)
         modules.add(didiBoosterModule)
+        modules.add(qmUIModule)
+        modules.add(facebookLithoModule)
 
         adapter.setOnItemClickListener { _, _, position ->
             when (position) {
@@ -164,10 +167,13 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, TencentMatrixTestActivity::class.java))
                 }
                 21 -> {
-                    startActivity(Intent(this, QMUIAndroidTestActivity::class.java))
+                    startActivity(Intent(this, DidiBoosterTestActivity::class.java))
                 }
                 22 -> {
-                    startActivity(Intent(this, DidiBoosterTestActivity::class.java))
+                    startActivity(Intent(this, QMUIAndroidTestActivity::class.java))
+                }
+                23 -> {
+                    startActivity(Intent(this, LithoTestActivity::class.java))
                 }
             }
         }
